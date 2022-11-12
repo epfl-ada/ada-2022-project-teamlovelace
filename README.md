@@ -18,14 +18,14 @@ Run pipeline :
 Install a replica of the conda environment by running
 
 ```sh
-conda env update -n dataenv --file env.yaml
-conda activate dataenv  # activate the environment
+conda env update -n ada2022teamlovelace --file env.yaml
+conda activate ada2022teamlovelace
 ```
 
-To re-export with updated dependencies, run
+To re-export with updated dependencies (this is also run in ``runall.sh``), run
 
 ```sh
-conda env export -n dataenv > env.new.yaml
+conda env export -n ada2022teamlovelace > env.yaml
 ```
 
 ## Project description
