@@ -1,0 +1,37 @@
+.
+├── data
+│   ├── generated
+│   │   └── preprocessed
+│   │       ├── character_clusters.pkl
+│   │       ├── characters.pkl
+│   │       ├── movies.pkl
+│   │       ├── summary.pkl
+│   │       └── tropes.pkl
+│   ├── publication
+│   └── raw
+│       ├── bamman+oconnor+smith.acl13.pdf
+│       ├── corenlp_plot_summaries.tar
+│       ├── extra
+│       │   └── ethnic_groups.csv
+│       ├── index.html
+│       ├── MovieSummaries
+│       │   ├── character.metadata.tsv
+│       │   ├── movie.metadata.tsv
+│       │   ├── name.clusters.txt
+│       │   ├── plot_summaries.txt
+│       │   ├── README.txt
+│       │   └── tvtropes.clusters.txt
+│       └── MovieSummaries.tar.gz
+├── env.yaml
+├── IDEAS.md
+├── README.md
+├── runall.sh
+├── src
+│   ├── exploration_actor_graph.ipynb
+│   ├── exploration_cold_war.ipynb
+│   ├── exploration.ipynb
+│   ├── preprocess.ipynb
+│   └── utils.py
+└── tree.txt
+
+8 directories, 26 files

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>CMU Movie Summary Corpus</title>
+    <link type="text/css" rel="stylesheet" href="http://www.cs.cmu.edu/~nasmith/nasstyle.css">
+  </head>
+
+   <body>
+
+    <h1>CMU Movie Summary Corpus</h1>
+<div class="mybox">
+This page provides links to a dataset of movie plot summaries and associated metadata.
+This data was collected by <a href="http://www.cs.cmu.edu/~dbamman">David Bamman</a>, <a href="http://brenocon.com">Brendan O'Connor</a>, and <a href="http://www.cs.cmu.edu/~nasmith">Noah Smith</a> at the
+<a href="www.lti.cs.cmu.edu">Language Technologies Institute</a> and
+<a href="www.ml.cmu.edu">Machine Learning Department</a> at 
+<a href="www.cmu.edu">Carnegie Mellon University</a>.
+</div>
+
+<h3>Download</h3>
+<ul>
+<li> <a href="data/MovieSummaries.tar.gz">Dataset</a> [46 M] and <a href="data/README.txt">readme</a>:  42,306 movie plot summaries extracted from Wikipedia + aligned metadata extracted from Freebase, including:
+<ul>
+<li>Movie box office revenue, genre, release date, runtime, and language</li>
+<li>Character names and aligned information about the actors who portray them, including gender and estimated age at the time of the movie's release</li>
+</ul>
+<li>Supplement: <a href="data/corenlp_plot_summaries.tar">Stanford CoreNLP-processed summaries</a> [628 M].  All of the plot summaries from above, run through the Stanford CoreNLP pipeline (tagging, parsing, NER and coref).
+</li>
+</ul>
+
+<h3>Further Reading</h3>
+Please cite this paper if you write any papers involving the use of the data above:
+<ul>
+<li> <strong><a href="http://www.cs.cmu.edu/~dbamman/pubs/pdf/bamman+oconnor+smith.acl13.pdf">Learning Latent Personas of Film Characters</a></strong> <br> 
+<a href="http://www.cs.cmu.edu/~dbamman">David Bamman</a>, <a href="http://brenocon.com">Brendan O'Connor</a>, and <a href="http://www.cs.cmu.edu/~nasmith">Noah A. Smith</a> <br>
+ACL 2013, Sofia, Bulgaria, August 2013
+</ul>
+<h3>Acknowledgments</h3>
+This research was supported in part by U.S. National Science Foundation grant IIS-0915187. <p />
+
+All data is released under a <a href="http://creativecommons.org/licenses/by-sa/3.0/us/legalcode">Creative Commons Attribution-ShareAlike License</a>. For questions or comments, please contact David Bamman (dbamman@cs.cmu.edu).
+
+<h3> Example </h3>
+
+The following example illustrates the data and metadata available for <em>Indiana Jones and the Raiders of the Lost Ark</em>.<p />
+
+<h4> Movie metadata</h4>
+<table border=1 width=90%>
+<tr><td>Wikipedia movie ID</td><td>54166</td></tr>
+<tr><td>Freebase movie ID</td><td>/m/0f4yh</td></tr>
+<tr><td>Movie name</td><td>Indiana Jones and the Raiders of the Lost Ark</td></tr>
+<tr><td>Movie release date</td><td>1981-06-12</td></tr>
+<tr><td>Movie box office revenue</td><td>389925971</td></tr>
+<tr><td>Movie runtime</td><td>115.0</td></tr>
+<tr><td>Movie languages</td><td>Arabic Language, Nepali Language, Spanish Language, Hebrew Language, English Language, German Language	</td></tr>
+<tr><td>Movie countries</td><td>United States of America</td></tr>
+<tr><td>Movie genres</td><td>Adventure, Costume Adventure, Action/Adventure, Action,  New Hollywood,  Airplanes and airports</td></tr>
+</table>
+
+<h4> Character metadata</h4>
+<table border=1 width=90%>
+<tr><td>Wikipedia Movie ID</td><td>Freebase Movie ID</td><td>Character Name</td><td>Actor DOB</td><td>Actor gender</td><td>Actor height</td><td>Actor ethnicity</td><td>Actor Name</td><td>Actor age at movie release</td><td>Freebase character map</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Dr. Marcus Brody</td><td>1922-05-31</td><td>M</td><td>1.816</td><td></td><td>Denholm Elliott</td><td>59</td><td>/m/02nwzzv</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Simon Katanga</td><td>1949-10-20</td><td>M</td><td>1.87</td><td>/m/02w7gg</td><td>George Harris</td><td>31</td><td>/m/02nw_18</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Dr. Ren&eacute; Belloq</td><td>1943-01-18</td><td>M</td><td>1.77</td><td></td><td>Paul Freeman</td><td>38</td><td>/m/02nwzzg</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Major Arnold Toht</td><td>1935-09-28</td><td>M</td><td></td><td></td><td>Ronald Lacey</td><td>45</td><td>/m/02nwzyz</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Indiana Jones</td><td>1942-07-13</td><td>M</td><td>1.85</td><td>/m/01qhm_</td><td>Harrison Ford</td><td>38</td><td>/m/0k294p</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Marion Ravenwood</td><td>1951-10-05</td><td>F</td><td>1.7</td><td>/m/07bch9</td><td>Karen Allen</td><td>29</td><td>/m/0k294v</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Colonel Dietrich</td><td>1946-04-26</td><td>M</td><td></td><td></td><td>Wolf Kahler</td><td>35</td><td>/m/02vd7bq</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Sallah</td><td>1944-05-05</td><td>M</td><td>1.85</td><td>/m/06gbnc</td><td>John Rhys-Davies</td><td>37</td><td>/m/03jr4n_</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Satipo</td><td>1953-05-24</td><td>M</td><td>1.89</td><td>/m/02w7gg</td><td>Alfred Molina</td><td>28</td><td>/m/03jrl6s</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Giant Sherpa</td><td>1937-05-19</td><td>M</td><td>1.95</td><td>/m/0g96wd</td><td>Pat Roach</td><td>44</td><td>/m/03mk_th</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Gobler</td><td>1947-05-09</td><td>M</td><td></td><td></td><td>Anthony Higgins</td><td>34</td><td>/m/0cf_wlf</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Col. Musgrove</td><td>1922-12-02</td><td>M</td><td></td><td></td><td>Don Fellows</td><td>58</td><td>/m/0cg2gvx</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Major Eaton</td><td>1948-07-05</td><td>M</td><td></td><td></td><td>William Hootkins</td><td>32</td><td>/m/0cg3259</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Barranca</td><td></td><td>M</td><td></td><td></td><td>Vic Tablian</td><td></td><td>/m/0gc54kz</td></tr>
+<tr><td>54166</td><td>/m/0f4yh</td><td>Bureaucrat</td><td></td><td></td><td></td><td></td><td>Bill Reimbold</td><td></td><td>/m/0gcd5f9</td></tr>
+</table>
+
+<h4> Plot summary</h4>
+In 1936, archaeologist Indiana Jones braves an ancient Peruvian temple filled with booby traps to retrieve a golden idol. Upon fleeing the temple, Indiana is confronted by rival archaeologist Ren&eacute; Belloq and the indigenous Hovitos. Surrounded and outnumbered, Indiana is forced to surrender the idol to Belloq and escapes aboard a waiting Waco seaplane, in the process revealing his fear of snakes. Shortly after returning to the college in the United States where he teaches archaeology, Indiana is interviewed by two Army intelligence agents. They inform him that the Nazis, in their quest for occult power, are searching for his old mentor, Abner Ravenwood, who is the leading expert on the ancient Egyptian city of Tanis and possesses the headpiece of an artifact called the Staff of Ra. Indiana deduces that the Nazis are searching for Tanis because it is believed to be the location of the Ark of the Covenant, the biblical chest built by the Israelites to contain the fragments of the Ten Commandments; the Nazis believe that if they acquire it, their armies will become invincible. The Staff of Ra, meanwhile, is the key to finding the Well of Souls, a secret chamber in which the Ark is buried. The agents subsequently authorize Indiana to recover the Ark before the Nazis. Indiana travels to Nepal, only to find that Ravenwood has died and that the headpiece is in the possession of his daughter, Marion, Indiana's embittered former lover. Indiana offers to buy the headpiece for three thousand dollars, plus two thousand more when they return to the United States. Marion's tavern is suddenly raided by a group of thugs commanded by Nazi agent Toht. The tavern is burned down in the ensuing fight, during which Toht burns his hand on the searing hot headpiece as he tries to grab it. Indiana and Marion escape with the headpiece, with Marion declaring she will accompany Indiana in his search for the Ark so he can repay his debt. They travel to Cairo where they learn from Indiana's friend Sallah, a skilled excavator, that Belloq and the Nazis, led by Colonel Dietrich, are currently digging for the Well of Souls with a replica of the headpiece modeled after the scar on Toht's hand. In a bazaar, Nazi operatives attempt to kidnap Marion and as Indiana chases after them it appears that she dies in an explosion. While deciphering the markings on the headpiece, Indiana and Sallah realize that the Nazis have miscalculated the location of the Well of Souls. Using this to their advantage, they infiltrate the Nazi dig and use the Staff of Ra to determine the location correctly and uncover the Well of Souls, which is filled with snakes. Indiana fends off the snakes and acquires the Ark, but Belloq, Dietrich and the Nazis arrive to take it. They toss Marion into the well with Indiana and seal them in, but they manage to escape. After a fistfight with a giant Nazi mechanic, blowing up a flying wing on the airstrip, and chasing down a convoy of trucks, Indiana takes back the Ark before it can be shipped to Berlin. Indiana and Marion leave Cairo to escort the Ark to England on board a tramp steamer. The next morning, their boat is boarded by Belloq, Dietrich and the Nazis, who once again steal the Ark and kidnap Marion. Indiana stows away on their U-boat and follows them to an isolated island in the Aegean Sea where Belloq plans to test the power of the Ark before presenting it to Hitler. Indiana reveals himself and threatens to destroy the Ark with a rocket-propelled grenade launcher, but Belloq calls his bluff, knowing Indy cannot bear to eradicate an important historical artifact. Indiana surrenders and is tied to a post with Marion as Belloq performs a ceremonial opening of the Ark, which appears to contain nothing but sand. Suddenly, spirits resembling Old Testament Seraphim emerge from the Ark. Aware of the supernatural danger of looking at the opened Ark, Indiana warns Marion to close her eyes. The apparitions suddenly morph into "angels of death", and lightning bolts begin flying out of the Ark, gruesomely killing the Nazi soldiers, while Belloq, Dietrich and Toht meet even more gruesome fates. The fires rise into the sky, then fall back down to Earth and the Ark closes with a crack of thunder. Back in Washington, D.C., the Army intelligence agents tell a suspicious Indiana and Brody that the Ark "is someplace safe" to be studied by "top men". In reality, the Ark is sealed in a wooden crate labeled "top secret" and stored in a giant government warehouse filled with countless similar crates.
+
+
+</body>
+</html>
