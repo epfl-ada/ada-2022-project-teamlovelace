@@ -9,8 +9,23 @@ Tree format : see ``tree.txt``
 
 Run pipeline :
 
-```bash
+```sh
 ./runall.sh
+```
+
+## Conda environment
+
+Install a replica of the conda environment by running
+
+```sh
+conda env update -n dataenv --file env.yaml
+conda activate dataenv  # activate the environment
+```
+
+To re-export with updated dependencies, run
+
+```sh
+conda env export -n dataenv > env.new.yaml
 ```
 
 ## Project description
