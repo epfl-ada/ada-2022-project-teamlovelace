@@ -1,6 +1,10 @@
 .
 ├── data
 │   ├── generated
+│   │   ├── graph
+│   │   │   ├── actor_graph_bymovie.csv
+│   │   │   ├── actor_graph_bymovie.edgelist.gz
+│   │   │   └── actor_graph_bymovie.gexf
 │   │   └── preprocessed
 │   │       ├── character_clusters.pkl
 │   │       ├── characters.pkl
@@ -34,4 +38,4 @@
 │   └── utils.py
 └── tree.txt
 
-8 directories, 26 files
+9 directories, 29 files
