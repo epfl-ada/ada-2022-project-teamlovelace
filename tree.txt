@@ -3,8 +3,7 @@
 │   ├── generated
 │   │   ├── graph
 │   │   │   ├── actor_graph_bymovie.csv
-│   │   │   ├── actor_graph_bymovie.edgelist.gz
-│   │   │   └── actor_graph_bymovie.gexf
+│   │   │   └── actor_graph_bymovie.edgelist.gz
 │   │   └── preprocessed
 │   │       ├── character_clusters.pkl
 │   │       ├── characters.pkl
@@ -16,7 +15,9 @@
 │       ├── bamman+oconnor+smith.acl13.pdf
 │       ├── corenlp_plot_summaries.tar
 │       ├── extra
-│       │   └── ethnic_groups.csv
+│       │   ├── actor_id2nationality_id.csv
+│       │   ├── ethnic_groups.csv
+│       │   └── nationality_id2nationality.csv
 │       ├── index.html
 │       ├── MovieSummaries
 │       │   ├── character.metadata.tsv
@@ -31,11 +32,12 @@
 ├── README.md
 ├── runall.sh
 ├── src
+│   ├── archive
+│   │   ├── exploration_cold_war.ipynb
+│   │   └── exploration_raw.ipynb
 │   ├── exploration_actor_graph.ipynb
-│   ├── exploration_cold_war.ipynb
-│   ├── exploration.ipynb
 │   ├── preprocess.ipynb
 │   └── utils.py
 └── tree.txt
 
-9 directories, 29 files
+10 directories, 30 files
