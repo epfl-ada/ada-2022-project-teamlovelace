@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "The world of actors"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - data.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

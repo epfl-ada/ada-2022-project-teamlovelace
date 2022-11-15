@@ -1,0 +1,11 @@
+---
+title: "The world of actors"
+author: 
+  - Arthur Andre
+  - Dario Goedtkindt
+  - Nicolas Wagner
+  - Nicole Vadot
+date: Winter 2022
+---
+
+Our great project resides here :)
