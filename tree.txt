@@ -1,15 +1,20 @@
 .
+├── assets
+│   └── belgian_actors_graph.png
 ├── data
 │   ├── generated
 │   │   ├── graph
 │   │   │   ├── actor_graph_belgian_bymovie.dot
 │   │   │   ├── actor_graph_bymovie.csv
 │   │   │   ├── actor_graph_bymovie.edgelist.gz
+│   │   │   ├── actor_graph_dyn_uk
 │   │   │   └── actor_graph_unfiltered_bymovie.edgelist.gz
 │   │   └── preprocessed
+│   │       ├── actors.pkl
 │   │       ├── character_clusters.pkl
 │   │       ├── characters.pkl
 │   │       ├── movies.pkl
+│   │       ├── roles.pkl
 │   │       ├── summary.pkl
 │   │       └── tropes.pkl
 │   ├── publication
@@ -19,6 +24,7 @@
 │       ├── extra
 │       │   ├── actor_id2nationality_id.csv
 │       │   ├── ethnic_groups.csv
+│       │   ├── movie_id2tomato_score.csv
 │       │   └── nationality_id2nationality.csv
 │       ├── index.html
 │       ├── MovieSummaries
@@ -36,16 +42,21 @@
 │   ├── search.json
 │   └── styles.css
 ├── env.yaml
-├── IDEAS.md
+├── papers
+│   ├── bibliography.bib
+│   └── Tabassum_2018_Social_Network_Analysis.pdf
 ├── README.md
 ├── runall.sh
 ├── src
 │   ├── archive
 │   │   ├── exploration_cold_war.ipynb
-│   │   └── exploration_raw.ipynb
+│   │   ├── exploration_raw.ipynb
+│   │   └── IDEAS.md
 │   ├── exploration_actor_graph.ipynb
-│   ├── exploration_belgian_actors.ipynb
-│   ├── exploration_nationalities.ipynb
+│   ├── exploration_actors_features.ipynb
+│   ├── exploration_actors_time.ipynb
+│   ├── exploration_belgian_actor_graph.ipynb
+│   ├── exploration_temporal_graph.ipynb
 │   ├── preprocess.ipynb
 │   └── utils.py
 ├── story
@@ -56,4 +67,4 @@
 │   └── styles.css
 └── tree.txt
 
-12 directories, 44 files
+14 directories, 53 files
