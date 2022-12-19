@@ -9,6 +9,8 @@ data/raw/*
 # include the metadata.txt
 !data/raw/index.html
 
+*.old.*
+
 
 .DS_Store
 
