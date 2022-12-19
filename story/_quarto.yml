@@ -4,12 +4,17 @@ project:
 
 website:
   title: "The world of actors"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - index.qmd
+      - section: Data story
+        contents:
+          - full_network.ipynb
+          - belgian.ipynb
+          - growth.ipynb
       - about.qmd
-      - data.qmd
 
 format:
   html:
