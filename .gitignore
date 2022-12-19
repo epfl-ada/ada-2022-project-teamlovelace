@@ -11,6 +11,9 @@ data/raw/*
 
 *.old.*
 
+# we cannot legally distribute the papers :(
+papers/*.pdf
+
 
 .DS_Store
 
