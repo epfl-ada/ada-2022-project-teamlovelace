@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Data",
-    "section": "",
-    "text": "Source data for this project.\n\nhttp://www.cs.cmu.edu/~ark/personas"
-  },
-  {
     "objectID": "full_network.html",
     "href": "full_network.html",
     "title": "The world of actors",
@@ -40,5 +33,12 @@
     "title": "The world of actors",
     "section": "",
     "text": "Abstract\nThe well-known concept of six degrees of separation descibes that one can link anyone to any other person by a “friend of a friend” chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, for Social Network Analysis and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world’s social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?"
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Data",
+    "section": "",
+    "text": "Source data for this project.\n\nhttp://www.cs.cmu.edu/~ark/personas"
   }
 ]
