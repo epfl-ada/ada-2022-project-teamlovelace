@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -224,11 +161,7 @@ div.csl-indent {
   <ul>
   <li><a href="#full-actor-network-characteristics" id="toc-full-actor-network-characteristics" class="nav-link active" data-scroll-target="#full-actor-network-characteristics">Full actor network characteristics</a>
   <ul class="collapse">
-  <li><a href="#graph-generation" id="toc-graph-generation" class="nav-link" data-scroll-target="#graph-generation">Graph generation</a>
-  <ul class="collapse">
-  <li><a href="#scale-estimation-and-feasibility" id="toc-scale-estimation-and-feasibility" class="nav-link" data-scroll-target="#scale-estimation-and-feasibility">Scale estimation and feasibility</a></li>
-  <li><a href="#numerical-results" id="toc-numerical-results" class="nav-link" data-scroll-target="#numerical-results">Numerical results</a></li>
-  </ul></li>
+  <li><a href="#graph-generation" id="toc-graph-generation" class="nav-link" data-scroll-target="#graph-generation">Graph generation</a></li>
   <li><a href="#degree-distribution" id="toc-degree-distribution" class="nav-link" data-scroll-target="#degree-distribution">Degree distribution</a></li>
   <li><a href="#clusters-and-diameter" id="toc-clusters-and-diameter" class="nav-link" data-scroll-target="#clusters-and-diameter">Clusters and diameter</a></li>
   </ul></li>
@@ -242,43 +175,13 @@ div.csl-indent {
 
 <section id="full-actor-network-characteristics" class="level1">
 <h1>Full actor network characteristics</h1>
-<div class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt, matplotlib <span class="im">as</span> mpl</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> igraph <span class="im">as</span> ig</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_edges: pd.DataFrame <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/graph/actor_graph_full.grouped.pkl'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_movies: pd.DataFrame <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/preprocessed/movies.pkl'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_actors <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/preprocessed/characters.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="graph-generation" class="level2">
 <h2 class="anchored" data-anchor-id="graph-generation">Graph generation</h2>
-<section id="scale-estimation-and-feasibility" class="level3">
-<h3 class="anchored" data-anchor-id="scale-estimation-and-feasibility">Scale estimation and feasibility</h3>
+<p>The actor network is modeled by a graph, where each actor represents as node <span class="math inline">\(i \in \{1 \cdots N\}\)</span>. Edges <span class="math inline">\((i,j) \in E\)</span> are placed between two actors if they have appeared in the same movie. We additionally weigh each edge by the number of movies the two actors have in common.</p>
 <p>Before we dive head first into computing the graph edges, we need to estimate how much space it will take. An upper bound for the number of edges is <span class="math inline">\(\mathcal{O}(\text{number of movies} \times \text{number of actors per movie}^2)\)</span>, since each movie links two actors together.</p>
-<p>We compute the number of actors per movie.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of actors per movie</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_numactors_per_movie <span class="op">=</span> (df_actors</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">'fb_movie_id'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">'fb_movie_id'</span>]]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="st">'count'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">'fb_movie_id'</span>: <span class="st">'numactors_per_movie'</span>})</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'numactors_per_movie'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>df_numactors_per_movie[<span class="st">'movie_name'</span>] <span class="op">=</span> df_movies.set_index(<span class="st">'fb_id'</span>).loc[df_numactors_per_movie.fb_movie_id].movie_name.values</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_numactors_per_movie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<p>We therefore compute the number of actors per movie, and report the histogram in <a href="#fig-numactorspermovie">Figure&nbsp;1</a>.</p>
+<div class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="24">
 
 <div>
 
@@ -286,7 +189,6 @@ div.csl-indent {
   <thead>
     <tr>
       <th></th>
-      <th>fb_movie_id</th>
       <th>numactors_per_movie</th>
       <th>movie_name</th>
     </tr>
@@ -294,31 +196,26 @@ div.csl-indent {
   <tbody>
     <tr>
       <th>0</th>
-      <td>/m/0cc8620</td>
       <td>115</td>
       <td>Hemingway &amp; Gellhorn</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>/m/04grkmd</td>
       <td>87</td>
       <td>Taking Woodstock</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>/m/02725hs</td>
       <td>81</td>
       <td>Captain Corelli's Mandolin</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>/m/02qr3k8</td>
       <td>81</td>
       <td>Terror in the Aisles</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>/m/02825cv</td>
       <td>72</td>
       <td>Walk Hard: The Dewey Cox Story</td>
     </tr>
@@ -326,179 +223,96 @@ div.csl-indent {
       <th>...</th>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th>64324</th>
-      <td>/m/02rxj4c</td>
       <td>1</td>
       <td>Primo</td>
     </tr>
     <tr>
       <th>64325</th>
-      <td>/m/0bh8lpd</td>
       <td>1</td>
       <td>The Stranger Who Looks Like Me</td>
     </tr>
     <tr>
       <th>64326</th>
-      <td>/m/0bh8np6</td>
       <td>1</td>
       <td>On the Wing</td>
     </tr>
     <tr>
       <th>64327</th>
-      <td>/m/0bh8q94</td>
       <td>1</td>
       <td>Robot Bastard!</td>
     </tr>
     <tr>
       <th>64328</th>
-      <td>/m/06zjk3b</td>
       <td>1</td>
       <td>Incident</td>
     </tr>
   </tbody>
 </table>
-<p>64329 rows × 3 columns</p>
+<p>64329 rows × 2 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(df_numactors_per_movie, x<span class="op">=</span><span class="st">'numactors_per_movie'</span>, binwidth<span class="op">=</span><span class="dv">1</span>, log_scale<span class="op">=</span>(<span class="va">False</span>, <span class="va">True</span>), element<span class="op">=</span><span class="st">'step'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Number of actors per movie'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Number of movies'</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Distribution of actors per movie'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
-<p><img src="full_network_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<div id="fig-numactorspermovie" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="full_network_files/figure-html/fig-numactorspermovie-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Distribution of actors per movie</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'mean=</span><span class="sc">{</span>df_numactors_per_movie<span class="sc">.</span>numactors_per_movie<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'median=</span><span class="sc">{</span>df_numactors_per_movie<span class="sc">.</span>numactors_per_movie<span class="sc">.</span>median()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With a total of 64329 movies, the distribution seems to follow an exponential law (with a somewhat long tail due to outliers). We pick the median at 6.0 to represent the distribution. We can now compute the upper bound :</p>
+<div class="cell" data-execution_count="30">
 <div class="cell-output cell-output-stdout">
-<pre><code>mean=7.01
-median=6.00</code></pre>
+<pre><code>num_edges ~ 2.3e+06</code></pre>
 </div>
 </div>
-<p>The distribution of actors per movie is clearly exponential (with a somewhat long tail due to outliers). Let’s be pessimistic and pick the largest of the median an the mean, and compute the upper bound.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'num_edges ~ </span><span class="sc">{</span>(<span class="bu">float</span>(df_numactors_per_movie.numactors_per_movie.mean())<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> <span class="bu">len</span>(df_actors.fb_movie_id.unique()))<span class="sc">:.1e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>num_edges ~ 3.2e+06</code></pre>
-</div>
-</div>
-</section>
-<section id="numerical-results" class="level3">
-<h3 class="anchored" data-anchor-id="numerical-results">Numerical results</h3>
 <p>With order <span class="math inline">\(10^6\)</span> edges we will not be doing any full graph visualization, however we can do some analysis on the large graph.</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df_edges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>2080273</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> ig.Graph.DataFrame(df_edges[[<span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>, <span class="st">'movie_count'</span>]], directed<span class="op">=</span><span class="va">False</span>, use_vids<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After explicit computation, we get the following graph :</p>
+<div class="cell" data-execution_count="32">
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH UN-- 135061 2080273 -- 
-+ attr: name (v), movie_count (e)</code></pre>
+<pre><code>Graph with 135061 nodes and 2080273 edges</code></pre>
 </div>
 </div>
-<p>Actually performing the computation shows the estimation to be very pessimistic, as we end up with around 200k edges. (and around 224k edges if we keep edges between the two same actors distinct).</p>
+<p>Thus we end up with around 200k edges. (and around 224k edges if we keep edges between the two same actors distinct).</p>
 <p>The graph contains around 135k actors, spanning movies released between 1888 and 2016.</p>
-</section>
 </section>
 <section id="degree-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="degree-distribution">Degree distribution</h2>
 <p>Among other real-life networks, social networks typically exhibit power law distribution of degrees. These types of networks are said to be “scale-free”, due to the scale-invariance of the power law. We compute the distribution for the network at hand.</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>series_degrees <span class="op">=</span> pd.Series(g.degree())</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>series_degrees.to_pickle(<span class="st">'../data/publication/entire_graph/degree.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pdf <span class="op">=</span> series_degrees.value_counts(normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ccdf <span class="op">=</span> pdf.sort_index(ascending<span class="op">=</span><span class="va">False</span>).cumsum()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> (pdf.index <span class="op">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"logN ~ logk"</span>,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span><span class="bu">dict</span>(logN<span class="op">=</span>np.log10(pdf[mask].values), logk<span class="op">=</span>np.log10(pdf[mask].index)))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> model.fit()</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>res.summary()</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>gamma, gamma_lower, gamma_upper <span class="op">=</span> res.params[<span class="st">'logk'</span>], <span class="op">*</span>res.conf_int().loc[<span class="st">'logk'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ax.plot(pdf.index, pdf.values, linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'PDF'</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'PDF $p(k)$'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Degree $k$'</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Degree distribution of the whole network'</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">'log'</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ax.autoscale(<span class="va">False</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>ax.plot(pdf.index, <span class="dv">10</span><span class="op">**</span>res.predict(<span class="bu">dict</span>(logk<span class="op">=</span>np.log10(pdf.index))).values,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="ss">f'power law fit</span><span class="ch">\n</span><span class="ss">$p(k) </span><span class="ch">\\</span><span class="ss">sim 1/k^</span><span class="ch">{{</span><span class="sc">{</span><span class="op">-</span>gamma<span class="sc">:.2f}</span><span class="ss"> </span><span class="ch">\\</span><span class="ss">pm </span><span class="sc">{</span>gamma_upper<span class="op">-</span>gamma_lower<span class="sc">:.2f}</span><span class="ch">}}</span><span class="ss">$'</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="41">
 <div class="cell-output cell-output-display">
-<p><img src="full_network_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+<div id="fig-degdist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="full_network_files/figure-html/fig-degdist-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Degree distribution of the whole network</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>This degree distribution clearly follows a power law <span class="math inline">\(p(k) \sim k^{-\gamma}\)</span>, and we recover the exponent <span class="math inline">\(\gamma = 1+\mu \approx 2.15 \pm 0.07\)</span>.</p>
+</div>
+<p>The degree distribution shown in <a href="#fig-degdist">Figure&nbsp;2</a> clearly follows a power law <span class="math inline">\(p(k) \sim k^{-\gamma}\)</span>, and we recover the exponent <span class="math inline">\(\gamma = 1+\mu \approx 2.15 \pm 0.07\)</span>.</p>
 <p>According to the Molly-Reed condition <span class="citation" data-cites="molloy_1995">(<a href="#ref-molloy_1995" role="doc-biblioref">Molloy and Reed 1995</a>)</span>, the entire network is fully connected to a giant component if <span class="math inline">\(\langle k^2 \rangle &lt; 2 \langle k \rangle\)</span>. In our case with a power law of <span class="math inline">\(\mu \approx 1.15\)</span>, the left hand side integral diverges, and so we expect to find a giant cluster. Although since <span class="math inline">\(\langle k \rangle &lt; \infty\)</span>, we expect the giant component has not yet absorbed all clusters (“percolation”), and some smaller localized clusters remain <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>.</p>
 <p>To put this result into perspective, the Internet has in-degree distribution with <span class="math inline">\(\mu \approx 1\)</span>, scientific papers have <span class="math inline">\(\mu \approx 2\)</span>, human sexual contacts have <span class="math inline">\(\mu \approx 2.4\)</span> <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>. We are therefore in the presence of a network in which large clusters play an important role.</p>
 </section>
 <section id="clusters-and-diameter" class="level2">
 <h2 class="anchored" data-anchor-id="clusters-and-diameter">Clusters and diameter</h2>
-<p>We compute the connected components of the graph (clusters), as well as their diameter. As the true diameter computation scales as <span class="math inline">\(\mathcal O(\text{number of nodes})^3\)</span>, we resort to using an approximative algorithm.</p>
-<div class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we use networkx here, because igraph does not have the diameter approximation</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and exact diameter is very slow to compute (O(V³))</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> nx.from_pandas_edgelist(df_edges, source<span class="op">=</span><span class="st">'actor1_fbid'</span>, target<span class="op">=</span><span class="st">'actor2_fbid'</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df_clusters <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        (<span class="bu">len</span>(c), nx.approximation.diameter(g.subgraph(c), seed<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> nx.connected_components(g)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">'size'</span>, <span class="st">'approx_diameter'</span>]</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>df_clusters.to_pickle(<span class="st">'../data/publication/entire_graph/clusters.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="149">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'number of clusters = </span><span class="sc">{</span><span class="bu">len</span>(df_clusters)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>number of clusters = 1272</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="158">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'the giant cluster encompasses approx </span><span class="sc">{</span>df_clusters[<span class="st">"size"</span>]<span class="sc">.</span><span class="bu">max</span>() <span class="op">/</span> g<span class="sc">.</span>number_of_nodes()<span class="sc">:.0%}</span><span class="ss"> of the total nodes'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>the giant cluster encompasses approx 94% of the total nodes</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="207">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>histd <span class="op">=</span> df_clusters.groupby(<span class="st">'size'</span>)[[<span class="st">'approx_diameter'</span>]].value_counts().sort_index().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.scatterplot(data<span class="op">=</span>histd, x<span class="op">=</span><span class="st">'size'</span>, y<span class="op">=</span><span class="st">'count'</span>, hue<span class="op">=</span><span class="st">'approx_diameter'</span>, size<span class="op">=</span><span class="st">'approx_diameter'</span>, legend<span class="op">=</span><span class="st">'full'</span>, hue_norm<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">4</span>), sizes<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">200</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sns.move_legend(ax, loc<span class="op">=</span><span class="st">'upper right'</span>, title<span class="op">=</span><span class="st">'Cluster diameter'</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">100</span>, <span class="fl">0.03</span>, <span class="fl">0.4</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'exponential cutoff'</span>, xy<span class="op">=</span>(<span class="dv">120</span>, <span class="fl">0.38</span>), xycoords<span class="op">=</span>(<span class="st">'data'</span>, <span class="st">'axes fraction'</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">'log'</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Cluster size'</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Number of clusters'</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Distribution of cluster sizes and diameter'</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We compute the connected components of the graph (clusters), as well as their diameter. As the true diameter computation scales as <span class="math inline">\(\mathcal O(\text{number of nodes})^3\)</span>, we resort to using an approximative algorithm. Data about the 1272 clusters is plotted on <a href="#fig-clusters">Figure&nbsp;3</a>.</p>
+<div class="cell" data-execution_count="44">
 <div class="cell-output cell-output-display">
-<p><img src="full_network_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<div id="fig-clusters" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="full_network_files/figure-html/fig-clusters-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Distribution of cluster sizes and diameter</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>As expected, we indeed have a giant cluster containing <span class="math inline">\(\sim 10^5\)</span> actors, accounting for about <span class="math inline">\(94\%\)</span> of the total number of actors in the graph.</p>
-<p>We also remark that even though the cluster size spans orders of magnitude, the cluster diameter spans between 1 and 14. The small clusters contain up to <span class="math inline">\(10^2\)</span> actors have diameter at most 3, and their size seem to roughly follow a power law with exponential cutoff [2]. Albeit its exponentially large size, the giant component has a diameter of 14, which is in-line with the small-world characteristic of scale-free networks : the diameter of the network scales only logarithmically with its size, i.e.&nbsp;<span class="math inline">\(d \sim \log N\)</span> [3].</p>
-<p>[3] barabasi_2000</p>
+</div>
+<p>As expected, we indeed have a giant cluster containing <span class="math inline">\(\sim 10^5\)</span> actors, accounting for about 94% of the total number of actors in the graph.</p>
+<p>We also remark that even though the cluster size spans orders of magnitude, the cluster diameter spans between 1 and 14. The smaller clusters contain up to <span class="math inline">\(10^2\)</span> actors have diameter at most 3, and their size seem to roughly follow a power law with exponential cutoff <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>. Albeit its exponentially large size, the giant component has a diameter of 14, which is in-line with the small-world characteristic of scale-free networks : the diameter of the network scales only logarithmically with its size, i.e.&nbsp;<span class="math inline">\(d \sim \log N\)</span> <span class="citation" data-cites="barabasi_2000">(<a href="#ref-barabasi_2000" role="doc-biblioref">Barabasi, Albert, and Jeong 2000</a>)</span>.</p>
 
 
 
@@ -506,6 +320,9 @@ median=6.00</code></pre>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-barabasi_2000" class="csl-entry" role="doc-biblioentry">
+Barabasi, Albert-Laszlo, Rita Albert, and Hawoong Jeong. 2000. <span>“Scale-Free Characteristics of Random Networks: The Topology of the World-Wide Web.”</span> <em>Physica A: Statistical Mechanics and Its Applications</em> 281 (June): 69–77. <a href="https://doi.org/10.1016/S0378-4371(00)00018-2">https://doi.org/10.1016/S0378-4371(00)00018-2</a>.
+</div>
 <div id="ref-mezard_2015" class="csl-entry" role="doc-biblioentry">
 Bouchaud J. P., Mézard M. 2015. <em>Complex Systems</em>.
 </div>

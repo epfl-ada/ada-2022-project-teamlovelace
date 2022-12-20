@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -204,30 +141,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#the-belgian-actor-subnetwork" id="toc-the-belgian-actor-subnetwork" class="nav-link active" data-scroll-target="#the-belgian-actor-subnetwork">The belgian actor subnetwork</a>
   <ul class="collapse">
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
-  <li><a href="#create-a-graph-of-belgian-actors" id="toc-create-a-graph-of-belgian-actors" class="nav-link" data-scroll-target="#create-a-graph-of-belgian-actors">Create a graph of belgian actors</a></li>
-  <li><a href="#isolating-subgraphs" id="toc-isolating-subgraphs" class="nav-link" data-scroll-target="#isolating-subgraphs">Isolating subgraphs</a></li>
-  <li><a href="#adding-edge-and-node-features" id="toc-adding-edge-and-node-features" class="nav-link" data-scroll-target="#adding-edge-and-node-features">Adding edge and node features</a>
-  <ul class="collapse">
-  <li><a href="#movie-count" id="toc-movie-count" class="nav-link" data-scroll-target="#movie-count">Movie count</a></li>
-  </ul></li>
+  <li><a href="#creating-a-graph-of-belgian-actors" id="toc-creating-a-graph-of-belgian-actors" class="nav-link" data-scroll-target="#creating-a-graph-of-belgian-actors">Creating a graph of belgian actors</a></li>
   <li><a href="#a-first-visualization" id="toc-a-first-visualization" class="nav-link" data-scroll-target="#a-first-visualization">A first visualization</a></li>
-  <li><a href="#indicators-of-centrality" id="toc-indicators-of-centrality" class="nav-link" data-scroll-target="#indicators-of-centrality">Indicators of centrality</a>
-  <ul class="collapse">
-  <li><a href="#who-are-the-top-actors" id="toc-who-are-the-top-actors" class="nav-link" data-scroll-target="#who-are-the-top-actors">Who are the top actors ?</a></li>
-  </ul></li>
-  <li><a href="#graph-heuristics" id="toc-graph-heuristics" class="nav-link" data-scroll-target="#graph-heuristics">Graph heuristics</a>
-  <ul class="collapse">
-  <li><a href="#diameters" id="toc-diameters" class="nav-link" data-scroll-target="#diameters">Diameters</a></li>
-  <li><a href="#node-connectivity" id="toc-node-connectivity" class="nav-link" data-scroll-target="#node-connectivity">Node connectivity</a></li>
-  </ul></li>
-  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering">Clustering</a>
-  <ul class="collapse">
-  <li><a href="#modularity-communities" id="toc-modularity-communities" class="nav-link" data-scroll-target="#modularity-communities">Modularity communities</a></li>
-  <li><a href="#louvain-algorithm" id="toc-louvain-algorithm" class="nav-link" data-scroll-target="#louvain-algorithm">Louvain algorithm</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
-  </ul></li>
-  <li><a href="#preliminary-conclusions" id="toc-preliminary-conclusions" class="nav-link" data-scroll-target="#preliminary-conclusions">Preliminary conclusions</a></li>
+  <li><a href="#indicators-of-centrality" id="toc-indicators-of-centrality" class="nav-link" data-scroll-target="#indicators-of-centrality">Indicators of centrality</a></li>
+  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering">Clustering</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,817 +156,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="the-belgian-actor-subnetwork" class="level1 page-columns page-full">
 <h1>The belgian actor subnetwork</h1>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> igraph <span class="im">as</span> ig</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="load-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_actors <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/preprocessed/characters.pkl'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_movies <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/preprocessed/movies.pkl'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we use the grouped edges, since networkx discards repeated edges, even with differents attributes</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df_edges <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/graph/actor_graph_full.grouped.pkl'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df_edges_ug <span class="op">=</span> pd.read_pickle(<span class="st">'../data/generated/graph/actor_graph_full.ungrouped.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g_all <span class="op">=</span> nx.from_pandas_edgelist(df_edges, <span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>, <span class="st">'movie_count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Graph with 135061 nodes and 2080273 edges</code></pre>
-</div>
-</div>
-</section>
-<section id="create-a-graph-of-belgian-actors" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-graph-of-belgian-actors">Create a graph of belgian actors</h2>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_belgian_actors <span class="op">=</span> (df_actors</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    .query(<span class="st">'actor_nationality == "Belgium"'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .dropna(subset<span class="op">=</span><span class="st">'fb_actor_id'</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    .drop_duplicates(subset<span class="op">=</span>[<span class="st">'fb_actor_id'</span>])  <span class="co"># because might contain multiple rows where same actor plays different characters</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'fb_actor_id'</span>)  <span class="co"># to have reproducible results, since GraphVis FDP layout is non-deterministic</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># df_belgian_actors = df_belgian_actors.sample(frac=1, random_state=0).reset_index(drop=True)  # shuffle rows with random seed until I get a nice vis from GraphVis</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df_belgian_actors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>wiki_id</th>
-      <th>fb_movie_id</th>
-      <th>release</th>
-      <th>character_name</th>
-      <th>actor_age</th>
-      <th>fb_char_id</th>
-      <th>fb_actor_id</th>
-      <th>release_year</th>
-      <th>actor_birth_year</th>
-      <th>actor_name</th>
-      <th>actor_birth</th>
-      <th>ethnicity</th>
-      <th>actor_height</th>
-      <th>actor_gender</th>
-      <th>actor_nationality</th>
-      <th>pageviews</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>11105410</td>
-      <td>/m/02r061p</td>
-      <td>1982</td>
-      <td>NaN</td>
-      <td>31.0</td>
-      <td>/m/04httm4</td>
-      <td>/m/01swrd</td>
-      <td>1982</td>
-      <td>1950</td>
-      <td>Chantal Akerman</td>
-      <td>1950-06-06</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>F</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>24827706</td>
-      <td>/m/080q9v1</td>
-      <td>2002-05-17</td>
-      <td>NaN</td>
-      <td>39.0</td>
-      <td>/m/0gc9nqz</td>
-      <td>/m/01wyxjj</td>
-      <td>2002</td>
-      <td>1962</td>
-      <td>Lio</td>
-      <td>1962-06-17</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>F</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5875250</td>
-      <td>/m/0fb84m</td>
-      <td>2006</td>
-      <td>NaN</td>
-      <td>53.0</td>
-      <td>/m/0cfzkk6</td>
-      <td>/m/0266rk5</td>
-      <td>2006</td>
-      <td>1952</td>
-      <td>Ronald Guttman</td>
-      <td>1952-08-12</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>99774.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>25839955</td>
-      <td>/m/09v8kcn</td>
-      <td>2009</td>
-      <td>NaN</td>
-      <td>33.0</td>
-      <td>/m/0gcr9sv</td>
-      <td>/m/026nm_f</td>
-      <td>2009</td>
-      <td>1975</td>
-      <td>R.Kan Albay</td>
-      <td>1975-09-01</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>34748638</td>
-      <td>/m/0j3d9tn</td>
-      <td>2012-05-17</td>
-      <td>Alain van Versch</td>
-      <td>34.0</td>
-      <td>/m/0jx6788</td>
-      <td>/m/027ch2s</td>
-      <td>2012</td>
-      <td>1977</td>
-      <td>Matthias Schoenaerts</td>
-      <td>1977-12-08</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>127172.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>246</th>
-      <td>22465221</td>
-      <td>/m/05zv1vg</td>
-      <td>1973</td>
-      <td>Deputy</td>
-      <td>54.0</td>
-      <td>/m/0n1pbd0</td>
-      <td>/m/0n1pbdb</td>
-      <td>1973</td>
-      <td>1918</td>
-      <td>René Hainaux</td>
-      <td>1918-04-19</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>247</th>
-      <td>21031907</td>
-      <td>/m/05b28z4</td>
-      <td>1949-11-14</td>
-      <td>Elsa</td>
-      <td>20.0</td>
-      <td>/m/0n1t4f9</td>
-      <td>/m/0n1t4fm</td>
-      <td>1949</td>
-      <td>1929</td>
-      <td>Anne Campion</td>
-      <td>1929-01-07</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>F</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>248</th>
-      <td>16949792</td>
-      <td>/m/04131_9</td>
-      <td>1974-09-11</td>
-      <td>Amandine</td>
-      <td>24.0</td>
-      <td>/m/0n21v7b</td>
-      <td>/m/0n21v7n</td>
-      <td>1974</td>
-      <td>1950</td>
-      <td>Marianne Eggerickx</td>
-      <td>1950-05-03</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>F</td>
-      <td>Belgium</td>
-      <td>68369.0</td>
-    </tr>
-    <tr>
-      <th>249</th>
-      <td>36035404</td>
-      <td>/m/0j_6phf</td>
-      <td>2012-02-29</td>
-      <td>Radu</td>
-      <td>NaN</td>
-      <td>/m/0n4jkxv</td>
-      <td>/m/0n4jky4</td>
-      <td>2012</td>
-      <td>&lt;NA&gt;</td>
-      <td>Gökhan Girginol</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>250</th>
-      <td>21031066</td>
-      <td>/m/05b1qcd</td>
-      <td>1949-09</td>
-      <td>Van Putzeboom</td>
-      <td>NaN</td>
-      <td>/m/0n4yvz1</td>
-      <td>/m/0n4yvzc</td>
-      <td>1949</td>
-      <td>1910</td>
-      <td>Victor Guyau</td>
-      <td>1910-07-29</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>M</td>
-      <td>Belgium</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>251 rows × 16 columns</p>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all belgian actors have a name ! we truely live in a society...</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> <span class="bu">any</span>(df_belgian_actors.actor_name.isna())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we lose quite a few actors since many belgian actors are connected to only non-belgian actors</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>g_belgian <span class="op">=</span> g_all.subgraph(df_belgian_actors.fb_actor_id).copy()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g_belgian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Graph with 250 nodes and 558 edges</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out self-loops and isolated nodes</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>g_belgian.remove_edges_from(nx.selfloop_edges(g_belgian))  <span class="co"># normally there should be no self-loops in the edgelist, but for sanity</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>g_belgian.remove_nodes_from(<span class="bu">list</span>(nx.isolates(g_belgian)))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g_belgian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="creating-a-graph-of-belgian-actors" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-graph-of-belgian-actors">Creating a graph of belgian actors</h2>
+<p>The belgian subnetwork is formed by slicing the original graph, keeping only nodes corresponding to belgian actors, and the edges between them.</p>
+<p>We end up with the following graph :</p>
+<div class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>Graph with 191 nodes and 558 edges</code></pre>
 </div>
 </div>
-</section>
-<section id="isolating-subgraphs" class="level2">
-<h2 class="anchored" data-anchor-id="isolating-subgraphs">Isolating subgraphs</h2>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list of connected components</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gsub_belgian <span class="op">=</span> [g_belgian.subgraph(c).copy() <span class="cf">for</span> c <span class="kw">in</span> nx.connected_components(g_belgian)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> G <span class="kw">in</span> gsub_belgian:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However, looking into the graph, we see that it is composed of a large central cluster and a few smaller graphs of at most 5 nodes. These are the result of slicing the original graph, where belgian actors that incidentally played together in an international movie still appear, despite being isolated.</p>
+<p>We list out the connected components, and keep only the largest one.</p>
+<div class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
 <pre><code>Graph with 156 nodes and 526 edges
+Graph with 3 nodes and 2 edges
+Graph with 2 nodes and 1 edges
 Graph with 3 nodes and 3 edges
 Graph with 5 nodes and 10 edges
 Graph with 3 nodes and 3 edges
+Graph with 3 nodes and 2 edges
+Graph with 3 nodes and 2 edges
 Graph with 3 nodes and 3 edges
-Graph with 3 nodes and 2 edges
 Graph with 2 nodes and 1 edges
 Graph with 3 nodes and 2 edges
 Graph with 2 nodes and 1 edges
-Graph with 3 nodes and 2 edges
-Graph with 2 nodes and 1 edges
-Graph with 3 nodes and 2 edges
 Graph with 3 nodes and 2 edges</code></pre>
 </div>
 </div>
-<p>-&gt; There is one large component, and a few small isolated subgraphs</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g_belgian <span class="op">=</span> <span class="bu">max</span>(gsub_belgian, key<span class="op">=</span><span class="kw">lambda</span> G: G.number_of_nodes())</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g_belgian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Graph with 156 nodes and 526 edges</code></pre>
-</div>
-</div>
-</section>
-<section id="adding-edge-and-node-features" class="level2">
-<h2 class="anchored" data-anchor-id="adding-edge-and-node-features">Adding edge and node features</h2>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge actor names</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_edges_belgian <span class="op">=</span> nx.to_pandas_edgelist(g_belgian, source<span class="op">=</span><span class="st">'actor1_fbid'</span>, target<span class="op">=</span><span class="st">'actor2_fbid'</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_edges_belgian[<span class="st">'actor1_name'</span>] <span class="op">=</span> df_belgian_actors.set_index(<span class="st">'fb_actor_id'</span>).loc[df_edges_belgian.actor1_fbid.values].actor_name.values</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df_edges_belgian[<span class="st">'actor2_name'</span>] <span class="op">=</span> df_belgian_actors.set_index(<span class="st">'fb_actor_id'</span>).loc[df_edges_belgian.actor2_fbid.values].actor_name.values</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df_edges_belgian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>actor1_fbid</th>
-      <th>actor2_fbid</th>
-      <th>movie_count</th>
-      <th>actor1_name</th>
-      <th>actor2_name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4q3w</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Francois De Brigode</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4cmz</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Nicolas Buysse</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0c0ctvb</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Alexandre von Sivers</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0282b9n</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Bouli Lanners</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>/m/0gc50br</td>
-      <td>/m/037b56</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Benoît Poelvoorde</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>521</th>
-      <td>/m/0cm1m3w</td>
-      <td>/m/027ch2s</td>
-      <td>1</td>
-      <td>Robbie Cleiren</td>
-      <td>Matthias Schoenaerts</td>
-    </tr>
-    <tr>
-      <th>522</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Charles Janssens</td>
-    </tr>
-    <tr>
-      <th>523</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0mzflxn</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Carlos van Lanckere</td>
-    </tr>
-    <tr>
-      <th>524</th>
-      <td>/m/0gc9zpq</td>
-      <td>/m/0gc47kq</td>
-      <td>1</td>
-      <td>Axel Daeseleire</td>
-      <td>Jaela Cole</td>
-    </tr>
-    <tr>
-      <th>525</th>
-      <td>/m/0mzflxn</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Carlos van Lanckere</td>
-      <td>Charles Janssens</td>
-    </tr>
-  </tbody>
-</table>
-<p>526 rows × 5 columns</p>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge movie ids</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_edges_belgian <span class="op">=</span> df_edges_belgian.merge(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    (df_edges_belgian</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># find the movies in edges i -&gt; j</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        .merge(pd.concat(</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="co"># include edges i -&gt; j and j -&gt; i</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>            [df_edges_ug, df_edges_ug.rename(columns<span class="op">=</span>{<span class="st">'actor1_fbid'</span>: <span class="st">'actor2_fbid'</span>, <span class="st">'actor2_fbid'</span>: <span class="st">'actor1_fbid'</span>})],</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>            ignore_index<span class="op">=</span><span class="va">True</span>  <span class="co"># </span><span class="al">WARNING</span><span class="co"> : this is important, since otherwise there are duplicate indices</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        ), how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>])</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># group by edge</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        .groupby([<span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>])</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># find all the movie_fbids corresponding to that edge</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        [[<span class="st">'movie_fbid'</span>]]</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># .agg({'movie_fbid': 'unique'})  # list of movies in common</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        .first()</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># prepare merge</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        .rename(columns<span class="op">=</span>{<span class="st">'movie_fbid'</span>: <span class="st">'first_movie_fbid'</span>})</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        .reset_index()</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>],</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>df_edges_belgian[<span class="st">'first_movie_numid'</span>] <span class="op">=</span> pd.factorize(df_edges_belgian.first_movie_fbid)[<span class="dv">0</span>]</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>df_edges_belgian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>actor1_fbid</th>
-      <th>actor2_fbid</th>
-      <th>movie_count</th>
-      <th>actor1_name</th>
-      <th>actor2_name</th>
-      <th>first_movie_fbid</th>
-      <th>first_movie_numid</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4q3w</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Francois De Brigode</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4cmz</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Nicolas Buysse</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0c0ctvb</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Alexandre von Sivers</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0282b9n</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Bouli Lanners</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>/m/0gc50br</td>
-      <td>/m/037b56</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Benoît Poelvoorde</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>521</th>
-      <td>/m/0cm1m3w</td>
-      <td>/m/027ch2s</td>
-      <td>1</td>
-      <td>Robbie Cleiren</td>
-      <td>Matthias Schoenaerts</td>
-      <td>/m/0c01rxz</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <th>522</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Charles Janssens</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>523</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0mzflxn</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Carlos van Lanckere</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>524</th>
-      <td>/m/0gc9zpq</td>
-      <td>/m/0gc47kq</td>
-      <td>1</td>
-      <td>Axel Daeseleire</td>
-      <td>Jaela Cole</td>
-      <td>/m/05f6jzj</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>525</th>
-      <td>/m/0mzflxn</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Carlos van Lanckere</td>
-      <td>Charles Janssens</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-    </tr>
-  </tbody>
-</table>
-<p>526 rows × 7 columns</p>
-</div>
-</div>
-</div>
+<p>Before we jump into the graph analysis and visualization, we make a small detour to examine the data. In particular, we would like to detect some cliques by naively looking at the number of movies actors have in common. This is done in <a href="#fig-shared">Figure&nbsp;1</a>, which shows that most actors in the belgian graph feature together in only one movie.</p>
 <div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add colors to edges</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>edgecmap <span class="op">=</span> plt.cm.gist_rainbow(np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, df_edges_belgian.first_movie_fbid.nunique()))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>edgecmap[:, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">0.6</span>  <span class="co"># alpha channel</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df_edges_belgian[<span class="st">'color'</span>] <span class="op">=</span> df_edges_belgian.first_movie_numid.<span class="bu">map</span>(<span class="kw">lambda</span> n: <span class="bu">tuple</span>(edgecmap[n]))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>df_edges_belgian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>actor1_fbid</th>
-      <th>actor2_fbid</th>
-      <th>movie_count</th>
-      <th>actor1_name</th>
-      <th>actor2_name</th>
-      <th>first_movie_fbid</th>
-      <th>first_movie_numid</th>
-      <th>color</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4q3w</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Francois De Brigode</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0gc4cmz</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Nicolas Buysse</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0c0ctvb</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Alexandre von Sivers</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>/m/0gc50br</td>
-      <td>/m/0282b9n</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Bouli Lanners</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>/m/0gc50br</td>
-      <td>/m/037b56</td>
-      <td>1</td>
-      <td>Véronique Dumont</td>
-      <td>Benoît Poelvoorde</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>521</th>
-      <td>/m/0cm1m3w</td>
-      <td>/m/027ch2s</td>
-      <td>1</td>
-      <td>Robbie Cleiren</td>
-      <td>Matthias Schoenaerts</td>
-      <td>/m/0c01rxz</td>
-      <td>57</td>
-      <td>(0.1843563512361468, 0.0, 1.0, 0.6)</td>
-    </tr>
-    <tr>
-      <th>522</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Charles Janssens</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-      <td>(1.0, 0.4313725490196079, 0.0, 0.6)</td>
-    </tr>
-    <tr>
-      <th>523</th>
-      <td>/m/0mzjrdl</td>
-      <td>/m/0mzflxn</td>
-      <td>1</td>
-      <td>Romain DeConinck</td>
-      <td>Carlos van Lanckere</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-      <td>(1.0, 0.4313725490196079, 0.0, 0.6)</td>
-    </tr>
-    <tr>
-      <th>524</th>
-      <td>/m/0gc9zpq</td>
-      <td>/m/0gc47kq</td>
-      <td>1</td>
-      <td>Axel Daeseleire</td>
-      <td>Jaela Cole</td>
-      <td>/m/05f6jzj</td>
-      <td>19</td>
-      <td>(0.7207207207207207, 1.0, 0.0, 0.6)</td>
-    </tr>
-    <tr>
-      <th>525</th>
-      <td>/m/0mzflxn</td>
-      <td>/m/0jt8hps</td>
-      <td>1</td>
-      <td>Carlos van Lanckere</td>
-      <td>Charles Janssens</td>
-      <td>/m/05t0jwx</td>
-      <td>8</td>
-      <td>(1.0, 0.4313725490196079, 0.0, 0.6)</td>
-    </tr>
-  </tbody>
-</table>
-<p>526 rows × 8 columns</p>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add names to the actors</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, (df_actors</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    .set_index(<span class="st">'fb_actor_id'</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    .loc[pd.concat([df_edges_belgian.actor1_fbid, df_edges_belgian.actor2_fbid]).unique()]</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    .actor_name</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">map</span>(<span class="kw">lambda</span> name: name.replace(<span class="st">' '</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>))</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    .to_dict()</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>), <span class="st">'name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add names to the actors</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nx.set_edge_attributes(g_belgian, (df_edges_belgian</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    .set_index([<span class="st">'actor1_fbid'</span>, <span class="st">'actor2_fbid'</span>])</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    .color</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    .to_dict()</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>), <span class="st">'color'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="movie-count" class="level3">
-<h3 class="anchored" data-anchor-id="movie-count">Movie count</h3>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>movie_count_hist <span class="op">=</span> df_edges_belgian.movie_count.value_counts().sort_index()</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax.bar(movie_count_hist.index, movie_count_hist.values, width<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(movie_count_hist.index)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Number of shared movies between belgian actors'</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Number of shared movie'</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Number of edges'</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="belgian_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<div id="fig-shared" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="belgian_files/figure-html/fig-shared-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Number of shared movies between belgian actors</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'number of movies displayed in the graph : </span><span class="sc">{</span>df_edges_belgian<span class="sc">.</span>first_movie_fbid<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>number of movies displayed in the graph : 72</code></pre>
 </div>
-</div>
-<p>Most of the actors feature together in one movie. We list out the ones that feature together in more than 3 movies</p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_edges_belgian.query(<span class="st">'movie_count &gt;= 3'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<p>We list out the actors that feature together in more than 3 movies :</p>
+<div class="cell" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="34">
 
 <div>
 
@@ -1057,125 +205,66 @@ Graph with 3 nodes and 2 edges</code></pre>
   <thead>
     <tr>
       <th></th>
-      <th>actor1_fbid</th>
-      <th>actor2_fbid</th>
-      <th>movie_count</th>
       <th>actor1_name</th>
       <th>actor2_name</th>
-      <th>first_movie_fbid</th>
-      <th>first_movie_numid</th>
-      <th>color</th>
+      <th>movie_count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>48</th>
-      <td>/m/0c08q1</td>
-      <td>/m/04mkd6k</td>
-      <td>3</td>
-      <td>Lucas Belvaux</td>
+      <th>73</th>
       <td>Patrick Descamps</td>
-      <td>/m/05308hq</td>
-      <td>11</td>
-      <td>(1.0, 0.6645468998410176, 0.0, 0.6)</td>
+      <td>Lucas Belvaux</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>/m/0668qk</td>
-      <td>/m/0gqt7h</td>
-      <td>4</td>
+      <th>347</th>
+      <td>Bouli Lanners</td>
+      <td>Benoît Poelvoorde</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>422</th>
       <td>Olivier Gourmet</td>
       <td>Jérémie Renier</td>
-      <td>/m/03y7fp2</td>
-      <td>22</td>
-      <td>(0.487546369899311, 1.0, 0.0, 0.6)</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>469</th>
-      <td>/m/084ckj</td>
-      <td>/m/0gcxfmm</td>
-      <td>3</td>
-      <td>Yolande Moreau</td>
+      <th>508</th>
       <td>Serge Larivière</td>
-      <td>/m/05sxh20</td>
-      <td>64</td>
-      <td>(0.7171781756180736, 0.0, 1.0, 0.6)</td>
-    </tr>
-    <tr>
-      <th>474</th>
-      <td>/m/0282b9n</td>
-      <td>/m/037b56</td>
+      <td>Yolande Moreau</td>
       <td>3</td>
-      <td>Bouli Lanners</td>
-      <td>Benoît Poelvoorde</td>
-      <td>/m/063zzkb</td>
-      <td>0</td>
-      <td>(1.0, 0.0, 0.16, 0.6)</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
-</section>
+<p>From this data, it is not immediately clear whether there is a clique formed by or containing these actors. Time to visualize the graph !</p>
 </section>
 <section id="a-first-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="a-first-visualization">A first visualization</h2>
-<p>We visualize the actor graph, coloring edges based on the movie featuring the actors it connects, and making edges larger for more movies played together.</p>
-<div class="cell" data-execution_count="222">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_network(g, ax, vertex_size: <span class="bu">str</span> <span class="op">|</span> <span class="bu">float</span> <span class="op">=</span> <span class="fl">3.0</span>, vertex_color: <span class="bu">str</span> <span class="op">=</span> <span class="st">'#0003'</span>, min_vertex_size: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.0</span>):</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    gig <span class="op">=</span> ig.Graph.from_networkx(g)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    random.seed(<span class="dv">7</span>)  <span class="co"># good seeds : 7, 10, 16, 42, 56</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    vertex_order <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(vertex_size, <span class="bu">str</span>):</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        vertex_size <span class="op">=</span> np.array(gig.vs[vertex_size])<span class="op">*</span><span class="dv">50</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        vertex_order <span class="op">=</span> np.argsort(vertex_size)[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        vertex_size <span class="op">=</span> np.maximum(min_vertex_size, vertex_size)</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> vertex_color.startswith(<span class="st">'#'</span>):</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        vertex_color<span class="op">=</span>gig.vs[vertex_color]</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    ig.plot(</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        gig, target<span class="op">=</span>ax,</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span><span class="st">'davidson_harel'</span>,</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        vertex_label<span class="op">=</span>gig.vs[<span class="st">'name'</span>],</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        vertex_label_size<span class="op">=</span><span class="fl">6.5</span>, vertex_size<span class="op">=</span>vertex_size, vertex_color<span class="op">=</span>vertex_color,</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>        vertex_frame_color<span class="op">=</span><span class="st">'white'</span>, vertex_frame_width<span class="op">=</span><span class="fl">2.0</span>,</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>        vertex_order<span class="op">=</span>vertex_order,</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        edge_color<span class="op">=</span>gig.es[<span class="st">'color'</span>], edge_width<span class="op">=</span>gig.es[<span class="st">'movie_count'</span>],</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        background<span class="op">=</span><span class="st">'black'</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="223">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>draw_network(g_belgian, ax)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We visualize the actor graph in <a href="#fig-graph-first">Figure&nbsp;2</a>, coloring edges based on the 72 different movies, and making edges proportionally larger to the number of movies two actors have in common.</p>
+<div class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
-<p><img src="belgian_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<div id="fig-graph-first" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="belgian_files/figure-html/fig-graph-first-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: First visualization of the belgian actor graph</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>Visually already, communities start to appear, and we can get a sense of centrality. For example, Jan Decleir definitely stands out.</p>
-<p>On the bottom of the graph, we can also visually inspect a small clique composed by Yolande Moreau, Serge Larivière, Benoît Poelvoorde, and Bouli Lanners, who have featured together multiple times.</p>
-<p>Jean-Claude Van Damme, a well-known actor, appears marginal here. This is an effect of slicing the original graph, where Jean-Claude Van Damme was well-connected, but appeared in more international movies, with non-belgian actors.</p>
+</div>
+<p>From this visualization we can see the emergence of small communities corresponding to one movie played in common. In the lower left, we can see Barbara Sarafian bridging the gap between two small communities.</p>
+<p>Some individuals, such as Jan Decleir or Jérémie Renier stand out by the sheer number of edges connected to them.</p>
+<p>Just left of Jérémie Renier, we can also visually inspect and confirm the small clique composed by Yolande Moreau, Serge Larivière, Benoît Poelvoorde, and Bouli Lanners.</p>
+<p>Jean-Claude Van Damme, a well-known actor, appears marginal here. This again is an effect of slicing the original graph, where Jean-Claude Van Damme was well-connected, but appeared in more international movies, with non-belgian actors.</p>
 </section>
 <section id="indicators-of-centrality" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="indicators-of-centrality">Indicators of centrality</h2>
-<p>We test how feasible some algorithms proposed in Methods are.</p>
-<div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>degree_centrality <span class="op">=</span> nx.degree_centrality(g_belgian)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>eigenvector_centrality <span class="op">=</span> nx.eigenvector_centrality(g_belgian)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>betweenness_centrality <span class="op">=</span> nx.betweenness_centrality(g_belgian)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>df_centrality <span class="op">=</span> pd.DataFrame(degree_centrality.items(), columns<span class="op">=</span>[<span class="st">'fb_actor_id'</span>, <span class="st">'degree_centrality'</span>])</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>df_centrality <span class="op">=</span> df_centrality.merge(pd.DataFrame(eigenvector_centrality.items(), columns<span class="op">=</span>[<span class="st">'fb_actor_id'</span>, <span class="st">'eigenvector_centrality'</span>]), on<span class="op">=</span><span class="st">'fb_actor_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>df_centrality <span class="op">=</span> df_centrality.merge(pd.DataFrame(betweenness_centrality.items(), columns<span class="op">=</span>[<span class="st">'fb_actor_id'</span>, <span class="st">'betweenness_centrality'</span>]), on<span class="op">=</span><span class="st">'fb_actor_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>df_centrality[<span class="st">'actor_name'</span>] <span class="op">=</span> df_belgian_actors.set_index(<span class="st">'fb_actor_id'</span>).loc[df_centrality.fb_actor_id].actor_name.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="who-are-the-top-actors" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="who-are-the-top-actors">Who are the top actors ?</h3>
+<p>Instead of relying on visualization to evaluate centrality, we can also compute diffent metrics, such as degree, eigenvector and betweenness centrality.</p>
+<p>For each centrality metric, we print out the top-5 actors.</p>
 <div class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_centrality.sort_values(<span class="st">'degree_centrality'</span>, ascending<span class="op">=</span><span class="va">False</span>)[[<span class="st">'degree_centrality'</span>, <span class="st">'actor_name'</span>, <span class="st">'fb_actor_id'</span>]].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 
 <div>
@@ -1186,48 +275,41 @@ Graph with 3 nodes and 2 edges</code></pre>
       <th></th>
       <th>degree_centrality</th>
       <th>actor_name</th>
-      <th>fb_actor_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
+      <th>106</th>
       <td>0.264516</td>
       <td>Jan Decleir</td>
-      <td>/m/04qjng</td>
     </tr>
     <tr>
-      <th>126</th>
+      <th>107</th>
       <td>0.129032</td>
       <td>Jérémie Renier</td>
-      <td>/m/0gqt7h</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>45</th>
       <td>0.122581</td>
       <td>François Beukelaers</td>
-      <td>/m/0bq9q76</td>
     </tr>
     <tr>
-      <th>152</th>
-      <td>0.116129</td>
-      <td>Matthias Schoenaerts</td>
-      <td>/m/027ch2s</td>
-    </tr>
-    <tr>
-      <th>134</th>
+      <th>149</th>
       <td>0.116129</td>
       <td>Filip Peeters</td>
-      <td>/m/0bl5pwj</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>0.116129</td>
+      <td>Matthias Schoenaerts</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_centrality.sort_values(<span class="st">'eigenvector_centrality'</span>, ascending<span class="op">=</span><span class="va">False</span>)[[<span class="st">'eigenvector_centrality'</span>, <span class="st">'actor_name'</span>]].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="41">
 
 <div>
 
@@ -1241,27 +323,27 @@ Graph with 3 nodes and 2 edges</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
+      <th>106</th>
       <td>0.408367</td>
       <td>Jan Decleir</td>
     </tr>
     <tr>
-      <th>127</th>
+      <th>10</th>
       <td>0.209502</td>
       <td>Werner De Smedt</td>
     </tr>
     <tr>
-      <th>103</th>
+      <th>56</th>
       <td>0.205922</td>
       <td>Bert Haelvoet</td>
     </tr>
     <tr>
-      <th>134</th>
+      <th>149</th>
       <td>0.204257</td>
       <td>Filip Peeters</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>58</th>
       <td>0.193717</td>
       <td>Gert Portael</td>
     </tr>
@@ -1270,9 +352,8 @@ Graph with 3 nodes and 2 edges</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_centrality.sort_values(<span class="st">'betweenness_centrality'</span>, ascending<span class="op">=</span><span class="va">False</span>)[[<span class="st">'betweenness_centrality'</span>, <span class="st">'actor_name'</span>]].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell" data-execution_count="52">
+<div class="cell-output cell-output-display" data-execution_count="52">
 
 <div>
 
@@ -1286,27 +367,27 @@ Graph with 3 nodes and 2 edges</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
+      <th>106</th>
       <td>0.395843</td>
       <td>Jan Decleir</td>
     </tr>
     <tr>
-      <th>152</th>
+      <th>100</th>
       <td>0.254062</td>
       <td>Matthias Schoenaerts</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>45</th>
       <td>0.116199</td>
       <td>François Beukelaers</td>
     </tr>
     <tr>
-      <th>126</th>
+      <th>107</th>
       <td>0.110377</td>
       <td>Jérémie Renier</td>
     </tr>
     <tr>
-      <th>107</th>
+      <th>69</th>
       <td>0.108920</td>
       <td>Bouli Lanners</td>
     </tr>
@@ -1315,168 +396,55 @@ Graph with 3 nodes and 2 edges</code></pre>
 </div>
 </div>
 </div>
-<p>Jan Decleir comes out on top each time. Matthias Schoenaerts, François Beukelaers as well as Filip Peeters appear two times.</p>
-<div class="cell" data-execution_count="95">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>), ncols<span class="op">=</span><span class="dv">3</span>, constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_centrality, x<span class="op">=</span><span class="st">'degree_centrality'</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>], bins<span class="op">=</span><span class="dv">40</span>)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_centrality, x<span class="op">=</span><span class="st">'eigenvector_centrality'</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>], bins<span class="op">=</span><span class="dv">40</span>)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_centrality, x<span class="op">=</span><span class="st">'betweenness_centrality'</span>, ax<span class="op">=</span>ax[<span class="dv">2</span>], bins<span class="op">=</span><span class="dv">40</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Distribution of different centrality measures'</span>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Jan Decleir comes out on top each time. Matthias Schoenaerts, François Beukelaers as well as Filip Peeters appear two times. The different methods result in quite different results. We try to explain this by plotting the distribution of the centrality measures in <a href="#fig-centrality-dist">Figure&nbsp;3</a>, as well a visualizing in <a href="#fig-centrality-vis">Figure&nbsp;4</a>.</p>
+<div class="cell" data-execution_count="55">
 <div class="cell-output cell-output-display">
-<p><img src="belgian_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<div id="fig-centrality-dist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="belgian_files/figure-html/fig-centrality-dist-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Distribution of different centrality measures</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>The histograms reveal that eigenvector centrality produces a powerlaw-like distribution : only a few actors are “central”</p>
-<p>There are many nodes with zero betweenness centrality : these might reveal actors who have only played in one movie, and therefore do not contribute to the general connectedness ?</p>
-<p>Degree centrality only yields local information, since it is just proportional to the local node degree. Therefore, it might not be as insightful</p>
-<div class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, df_centrality.set_index(<span class="st">'fb_actor_id'</span>).degree_centrality.to_dict(), <span class="st">'degree'</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, df_centrality.set_index(<span class="st">'fb_actor_id'</span>).eigenvector_centrality.to_dict(), <span class="st">'eigenvector'</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, df_centrality.set_index(<span class="st">'fb_actor_id'</span>).betweenness_centrality.to_dict(), <span class="st">'betweenness'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell page-columns page-full" data-execution_count="216">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">15</span>), ncols<span class="op">=</span><span class="dv">3</span>, dpi<span class="op">=</span><span class="dv">200</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> vsize, ax <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">'degree'</span>, <span class="st">'eigenvector'</span>, <span class="st">'betweenness'</span>], axs.flat):</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    draw_network(g_belgian, ax, vertex_size<span class="op">=</span>vsize)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f'</span><span class="sc">{</span>vsize<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> centrality'</span>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-screen">
-<p><img src="belgian_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+<div class="cell page-columns page-full" data-execution_count="59">
+<div class="cell-output cell-output-display column-screen-inset">
+<div id="fig-centrality-vis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="belgian_files/figure-html/fig-centrality-vis-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Visual comparison of different centrality measures</figcaption><p></p>
+</figure>
 </div>
 </div>
+</div>
+<p>This yields the following observations.</p>
 <p><strong>Degree centrality</strong></p>
-<p>The simplest measure of centrality yields the result that more connected seem more important</p>
+<p>Degree centrality only yields local information, since it is just proportional to the local node degree. Therefore, it might not be as insightful as compared to measures which take into account the entire graph</p>
+<p>Visually, we see that Jan Decleir appears as a the only very large node. This points to the problem that degree centrality only looks “one hop away”, where we would intuitively think that neighbours of Jan Decleir would have larger centrality, just because they are directly connected to a hub.</p>
 <p><strong>Eigenvector centrality</strong></p>
-<p>A striking difference here is that there appears a clear “core”, but Jan Decleir, Jérémie Renier are still top-2 actors</p>
-<p>Nodes connected to the high eigenvector centrality nodes are more likely to have a high eigenvector centrality.</p>
-<p>Furthermore, eigenvector centrality not only picks up on the “local” connectedness of an actor, but also its place in the whole graph -&gt; probably more relevant for our analysis ?</p>
+<p>Mathematically, this adresses the issue of “one-hop” degree centrality, as this centrality is derived from a self-consistent equation taking into account the whole graph. Nodes connected to the high eigenvector centrality nodes are more likely to have a high eigenvector centrality. Eigenvector centrality produces a powerlaw-like distribution : only a few actors are “central”, with many actors having a small centrality.</p>
 <p><strong>Betweenness centrality</strong></p>
-<p>The separation is much more extreme : Jean Decleir, Matthieu Schoenaerts, etc. appear as essential hubs to the graph. Note the interesting case of Senne Rouffaer, who is the only connection to a small cluster on the upper left, to the rest of the graph. This metric might be more important to interpret separation of communities. This is clearly visualized here</p>
+<p>Many nodes have zero betweenness centrality : these correspond to actors on the “edge of the graph”, and therefore do not contribute to the general connectedness of the graph. And indeed, this is confirmed visually, as nodes far away from the core appear very small (and should not appear at all, if it weren’t for the minimal node size set for the visualization). Barbara Sarafian, despite living on the edge of the graph, has a nonzero betweenness centrality, as this actor connects two small communities.</p>
 </section>
-</section>
-<section id="graph-heuristics" class="level2">
-<h2 class="anchored" data-anchor-id="graph-heuristics">Graph heuristics</h2>
-<section id="diameters" class="level3">
-<h3 class="anchored" data-anchor-id="diameters">Diameters</h3>
-<p>This graph is relatively small. We can get from any actor to any other in less than 8 hops.</p>
-<div class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>nx.diameter(g_belgian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="83">
-<pre><code>8</code></pre>
-</div>
-</div>
-</section>
-<section id="node-connectivity" class="level3">
-<h3 class="anchored" data-anchor-id="node-connectivity">Node connectivity</h3>
-<p>We test the resilience of the graph to having nodes removed.</p>
-<p>TODO : do this with the average path length as a measure</p>
-<div class="cell" data-execution_count="181">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> repeat_minimum_node_cut(g, max_iter: <span class="bu">int</span> <span class="op">=</span> <span class="dv">20</span>):</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> g.copy()</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    number_of_nodes <span class="op">=</span> [g.number_of_nodes()]</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    centrality_of_nodes_removed <span class="op">=</span> [np.array(np.nan)]</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(max_iter):</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>        nodes_to_remove <span class="op">=</span> nx.minimum_node_cut(g)</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>        g.remove_nodes_from(nodes_to_remove)</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>        df_removed <span class="op">=</span> df_centrality.set_index(<span class="st">'fb_actor_id'</span>).loc[<span class="bu">list</span>(nodes_to_remove)]</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        centrality_of_nodes_removed.append(df_removed.betweenness_centrality.values)</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        gsub <span class="op">=</span> [g.subgraph(c).copy() <span class="cf">for</span> c <span class="kw">in</span> nx.connected_components(g)]</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        g <span class="op">=</span> <span class="bu">max</span>(gsub, key<span class="op">=</span><span class="kw">lambda</span> G: G.number_of_nodes())</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        number_of_nodes.append(g.number_of_nodes())</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> number_of_nodes, centrality_of_nodes_removed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="182">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>g_belgian_without_Decleir <span class="op">=</span> g_belgian.copy()</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>g_belgian_without_Decleir.remove_node(<span class="st">'/m/04qjng'</span>)  <span class="co"># Remove Jan Decleir</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>number_of_nodes0, centrality_removed0 <span class="op">=</span> repeat_minimum_node_cut(g_belgian)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>number_of_nodes1, centrality_removed1 <span class="op">=</span> repeat_minimum_node_cut(g_belgian_without_Decleir)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="186">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(number_of_nodes0)))</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>ax.plot(x, number_of_nodes0, <span class="st">'--'</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>, label<span class="op">=</span><span class="st">'original graph'</span>, zorder<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>ax.plot(x, number_of_nodes1, <span class="st">'--'</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>, label<span class="op">=</span><span class="st">'graph without Decleir'</span>, zorder<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, number_of_nodes0, s<span class="op">=</span>np.hstack(centrality_removed0)<span class="op">*</span><span class="fl">2e3</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, number_of_nodes1, s<span class="op">=</span>np.hstack(centrality_removed1)<span class="op">*</span><span class="fl">2e3</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Iteration'</span>)</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Number of nodes'</span>)</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="belgian_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-</section>
-<section id="clustering" class="level2">
+<section id="clustering" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="clustering">Clustering</h2>
-<div class="cell" data-execution_count="187">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx.algorithms.community <span class="im">as</span> nxcommunity</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="195">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>nodecmap <span class="op">=</span> [ mpl.colors.to_rgba(c, alpha<span class="op">=</span><span class="fl">0.7</span>) <span class="cf">for</span> c <span class="kw">in</span> plt.rcParams[<span class="st">'axes.prop_cycle'</span>].by_key()[<span class="st">'color'</span>] ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="modularity-communities" class="level3">
-<h3 class="anchored" data-anchor-id="modularity-communities">Modularity communities</h3>
-<p>We use the Clauset-Newman-Moore greedy modularity maximization to blindly try to find some communities.</p>
-<div class="cell" data-execution_count="212">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>communities <span class="op">=</span> nxcommunity.greedy_modularity_communities(g_belgian)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(communities)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>node2community <span class="op">=</span> {}</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(communities):</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> com:</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>        node2community[node] <span class="op">=</span> i</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>node2color <span class="op">=</span> { node: nodecmap[node2community[node]] <span class="cf">for</span> node <span class="kw">in</span> g_belgian.nodes }</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, node2color, <span class="st">'newman_color'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>9 communities have been found.</p>
-<p>Note : we can manually set an upper bound for the number of communities using the <code>best_n</code> kwarg</p>
-</section>
-<section id="louvain-algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="louvain-algorithm">Louvain algorithm</h3>
-<p>The louvain algorithm works on nodes (actors) instead of edges (movies), which is a much more natural way to think about the problem.</p>
-<div class="cell" data-execution_count="211">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>communities <span class="op">=</span> nxcommunity.louvain_communities(g_belgian, seed<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(communities)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>node2community <span class="op">=</span> {}</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(communities):</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> com:</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>        node2community[node] <span class="op">=</span> i</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>node2color <span class="op">=</span> { node: nodecmap[node2community[node]] <span class="cf">for</span> node <span class="kw">in</span> g_belgian.nodes }</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_belgian, node2color, <span class="st">'louvain_color'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="comparison" class="level3">
-<h3 class="anchored" data-anchor-id="comparison">Comparison</h3>
-<div class="cell" data-execution_count="226">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">15</span>), ncols<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color, ax <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">'newman_color'</span>, <span class="st">'louvain_color'</span>], axs.flat):</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    draw_network(g_belgian, ax, vertex_size<span class="op">=</span><span class="st">'eigenvector'</span>, vertex_color<span class="op">=</span>color)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">'Clauset-Newman-Moore clustering'</span>)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Louvain clustering'</span>)</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="belgian_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+<p>Another important aspect of social networks is the formation of clusters. Again, there exist algorithms to try to find these clusters. We study two such algorithms, the Clauset-Newman-Moore and Louvain algorithms. Their comparison is interesting, in that their approach are opposite.</p>
+<p>The Louvain algorithm tries to join clusters together to increase modularity, which measures how internally well-connected the cluster is compared to the outside.</p>
+<p>The Clauset-Newman-Moore algorithm splits the graph, removing edges with high betweenness. The reasoning behind this is that communities are separated by a few edges, through which the majority of the “traffic” between the two communities flow.</p>
+<div class="cell page-columns page-full" data-execution_count="69">
+<div class="cell-output cell-output-display column-screen-inset">
+<div id="fig-community-vis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="belgian_files/figure-html/fig-community-vis-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: Comparison of the two clustering algorithms. Nodes are colored according to community, and size according to eigenvalue centrality. The minimum vertex size is set to be large, such that colours are easily visible.</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>We set a minimum vertex size, so that we can still see the clustering</p>
-<p>The Newman communities found are not visually convicing, espectially the green one. I think this is because the modularity is a measure on the “edge importance”, and that in our case this does not make sense. Edges generated by each movie should intuitively have the same importance, rather, the <em>actors</em> should be the ones who are important.</p>
-<p>We see that the Louvain algorithm generates visually more convincing results, which group actors together close in the force-directed graph</p>
-</section>
-</section>
-<section id="preliminary-conclusions" class="level2">
-<h2 class="anchored" data-anchor-id="preliminary-conclusions">Preliminary conclusions</h2>
-<p>In the above graph, nodes are sized according to eigenvalue centrality and are colored according to (Louvain) community, and edges are colored according to the movie.</p>
-<p>Key observations : - Communities often group actors which seem to have similar eigenvalue centrality, and have played in the same movies. For instance, the green community is well connected by majoritarily two movies, colored cyan and purple. - Three communities stand out : red, gray and brown. With all three, they represent a large majority of the well ranked actors (according to eigenvalue centrality). These can be interpreted as the “popular” Belgian actors - The five other communities are that of smaller actors. These might correspond to more “niche” communities. - Smaller communities seem to rely on one or two entrypoint-actors. The pink community in the upper-right holds together solely through actor Senne Rouffaer. The green community has two entry-points : Johan Heldenberg, who provides a bridge with the (popular) brown community, and Matthias Schoenaerts, bridges with the more niche purple and blue communities.</p>
+</div>
+<p><a href="#fig-community-vis">Figure&nbsp;5</a> visualizes the different clusterings. Communities often group actors which seem to have similar eigenvalue centrality, and have played in the same movies. For instance, the green community is well connected by majoritarily two movies, colored cyan and purple.</p>
+<p>In the Louvain clustering, three communities (blue, gray, brown in the right of the graph) stand out as corresponding to the “popular” belgian actors, all having large eigenvalue centrality. The five other communities (green, red, pink, orange, purple) are that of smaller actors. These might correspond to more “niche” communities. We note that the niche communities rely on highly connected actors to connect to the rest of the graph. Notably in this case, Matthieu Schoenaerts and Johan Heldenbergh provide a bridge to and from the pink community.</p>
+<p>For this particular graph, the Louvain clustering seems more reasonable. The blue community from the Clauset-Newman-Moore clustering seems to be way too large, especially when a very small gray community in the upper-left is composed of only 5 nodes. Louvain clustering on the other hand, seems to produce more evenly distributed communities.</p>
+<p>One explanation for this could be that the Louvain algorithm works on node degree, instead of the edges. In this case, the node degree should be taken into account, as we would expect to group “popular” and “niche” actors in separate communities. The Clauset-Newman-Moore places importance on edge via the betweenness measure, however we argue that the edges generated by each movie should be equally important, rendering this algorithm less effective for our problem.</p>
 
 
 </section>
