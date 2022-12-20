@@ -180,8 +180,8 @@ div.csl-indent {
 <p>The actor network is modeled by a graph, where each actor represents as node <span class="math inline">\(i \in \{1 \cdots N\}\)</span>. Edges <span class="math inline">\((i,j) \in E\)</span> are placed between two actors if they have appeared in the same movie. We additionally weigh each edge by the number of movies the two actors have in common.</p>
 <p>Before we dive head first into computing the graph edges, we need to estimate how much space it will take. An upper bound for the number of edges is <span class="math inline">\(\mathcal{O}(\text{number of movies} \times \text{number of actors per movie}^2)\)</span>, since each movie links two actors together.</p>
 <p>We therefore compute the number of actors per movie, and report the histogram in <a href="#fig-numactorspermovie">Figure&nbsp;1</a>.</p>
-<div class="cell" data-execution_count="24">
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="56">
 
 <div>
 
@@ -255,7 +255,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="57">
 <div class="cell-output cell-output-display">
 <div id="fig-numactorspermovie" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -266,47 +266,57 @@ div.csl-indent {
 </div>
 </div>
 <p>With a total of 64329 movies, the distribution seems to follow an exponential law (with a somewhat long tail due to outliers). We pick the median at 6.0 to represent the distribution. We can now compute the upper bound :</p>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="58">
 <div class="cell-output cell-output-stdout">
 <pre><code>num_edges ~ 2.3e+06</code></pre>
 </div>
 </div>
 <p>With order <span class="math inline">\(10^6\)</span> edges we will not be doing any full graph visualization, however we can do some analysis on the large graph.</p>
 <p>After explicit computation, we get the following graph :</p>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="59">
 <div class="cell-output cell-output-stdout">
 <pre><code>Graph with 135061 nodes and 2080273 edges</code></pre>
 </div>
 </div>
 <p>Thus we end up with around 200k edges. (and around 224k edges if we keep edges between the two same actors distinct).</p>
-<p>The graph contains around 135k actors, spanning movies released between 1888 and 2016.</p>
-</section>
-<section id="degree-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="degree-distribution">Degree distribution</h2>
-<p>Among other real-life networks, social networks typically exhibit power law distribution of degrees. These types of networks are said to be “scale-free”, due to the scale-invariance of the power law. We compute the distribution for the network at hand.</p>
-<div class="cell" data-execution_count="41">
+<p>The graph contains around 135k actors, spanning movies released between 1888 and 2016, as shown in <a href="#fig-mpy">Figure&nbsp;2</a>. We note that after approximatively 2010, the number of movies in the dataset drops fast, even though the original paper with the data was published in August 2013.</p>
+<div class="cell" data-execution_count="60">
 <div class="cell-output cell-output-display">
-<div id="fig-degdist" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-mpy" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="full_network_files/figure-html/fig-degdist-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Degree distribution of the whole network</figcaption><p></p>
+<p><img src="full_network_files/figure-html/fig-mpy-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Number of movies released each year</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The degree distribution shown in <a href="#fig-degdist">Figure&nbsp;2</a> clearly follows a power law <span class="math inline">\(p(k) \sim k^{-\gamma}\)</span>, and we recover the exponent <span class="math inline">\(\gamma = 1+\mu \approx 2.15 \pm 0.07\)</span>.</p>
+</section>
+<section id="degree-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="degree-distribution">Degree distribution</h2>
+<p>Among other real-life networks, social networks typically exhibit power law distribution of degrees. These types of networks are said to be “scale-free”, due to the scale-invariance of the power law. We compute the distribution for the network at hand.</p>
+<div class="cell" data-execution_count="62">
+<div class="cell-output cell-output-display">
+<div id="fig-degdist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="full_network_files/figure-html/fig-degdist-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Degree distribution of the whole network</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The degree distribution shown in <a href="#fig-degdist">Figure&nbsp;3</a> clearly follows a power law <span class="math inline">\(p(k) \sim k^{-\gamma}\)</span>, and we recover the exponent <span class="math inline">\(\gamma = 1+\mu \approx 2.15 \pm 0.07\)</span>.</p>
 <p>According to the Molly-Reed condition <span class="citation" data-cites="molloy_1995">(<a href="#ref-molloy_1995" role="doc-biblioref">Molloy and Reed 1995</a>)</span>, the entire network is fully connected to a giant component if <span class="math inline">\(\langle k^2 \rangle &lt; 2 \langle k \rangle\)</span>. In our case with a power law of <span class="math inline">\(\mu \approx 1.15\)</span>, the left hand side integral diverges, and so we expect to find a giant cluster. Although since <span class="math inline">\(\langle k \rangle &lt; \infty\)</span>, we expect the giant component has not yet absorbed all clusters (“percolation”), and some smaller localized clusters remain <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>.</p>
 <p>To put this result into perspective, the Internet has in-degree distribution with <span class="math inline">\(\mu \approx 1\)</span>, scientific papers have <span class="math inline">\(\mu \approx 2\)</span>, human sexual contacts have <span class="math inline">\(\mu \approx 2.4\)</span> <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>. We are therefore in the presence of a network in which large clusters play an important role.</p>
 </section>
 <section id="clusters-and-diameter" class="level2">
 <h2 class="anchored" data-anchor-id="clusters-and-diameter">Clusters and diameter</h2>
-<p>We compute the connected components of the graph (clusters), as well as their diameter. As the true diameter computation scales as <span class="math inline">\(\mathcal O(\text{number of nodes})^3\)</span>, we resort to using an approximative algorithm. Data about the 1272 clusters is plotted on <a href="#fig-clusters">Figure&nbsp;3</a>.</p>
-<div class="cell" data-execution_count="44">
+<p>We compute the connected components of the graph (clusters), as well as their diameter. As the true diameter computation scales as <span class="math inline">\(\mathcal O(\text{number of nodes})^3\)</span>, we resort to using an approximative algorithm. Data about the 1272 clusters is plotted on <a href="#fig-clusters">Figure&nbsp;4</a>.</p>
+<div class="cell" data-execution_count="72">
 <div class="cell-output cell-output-display">
 <div id="fig-clusters" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="full_network_files/figure-html/fig-clusters-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Distribution of cluster sizes and diameter</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Distribution of cluster sizes and diameter</figcaption><p></p>
 </figure>
 </div>
 </div>
