@@ -25,6 +25,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -182,12 +201,17 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
-<p>The well-known concept of <a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">six degrees of separation</a> descibes that one can link anyone to any other person by a “friend of a friend” chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, for <a href="https://www.researchgate.net/publication/324575362_Social_network_analysis_An_overview?enrichId=rgreq-c79a6d16ab4fd028766f9a8985c87c93-XXX&amp;enrichSource=Y292ZXJQYWdlOzMyNDU3NTM2MjtBUzo4MzU2MTAzMTkyODIxNzZAMTU3NjIzNjQzMzIxMw%3D%3D&amp;el=1_x_3&amp;_esc=publicationCoverPdf">Social Network Analysis</a> and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world’s social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?</p>
+<p>The well-known concept of <a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">six degrees of separation</a> descibes that one can link anyone to any other person by a “friend of a friend” chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, standing for Social Network Analysis <span class="citation" data-cites="tabassum_2018">(<a href="#ref-tabassum_2018" role="doc-biblioref">Tabassum et al. 2018</a>)</span> and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world’s social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-tabassum_2018" class="csl-entry" role="doc-biblioentry">
+Tabassum, Shazia, Fabiola Pereira, Sofia Fernandes, and João Gama. 2018. <span>“Social Network Analysis: An Overview.”</span> <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em> 8 (April): e1256. <a href="https://doi.org/10.1002/widm.1256">https://doi.org/10.1002/widm.1256</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
