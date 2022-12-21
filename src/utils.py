@@ -1,6 +1,7 @@
 import dateutil
 import pandas as pd
 import numpy as np
+import pickle
 
 __all__ = ['autoparse_year', 'get_grid_arrangement']
 
@@ -66,3 +67,13 @@ def get_pageviews(names, langs):
         for lang, count in counts.items():
             total_counts[actor] += total_counts[actor] + count[actor]
     return total_counts
+
+def get_or_init_pickle(path, init):
+    value = None
+    try:
+        value = pickle.load(open(path, "rb"))
+    except (OSError, IOError) as e:
+        print(path + "not found, computing it from init()")
+        value = init()
+        pickle.dump(value, open(path, "wb"))
+    return value
