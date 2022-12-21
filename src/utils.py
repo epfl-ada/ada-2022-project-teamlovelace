@@ -69,11 +69,14 @@ def get_pageviews(names, langs):
     return total_counts
 
 def get_or_init_pickle(path, init):
-    value = None
     try:
         value = pickle.load(open(path, "rb"))
+        return value
     except (OSError, IOError) as e:
-        print(path + "not found, computing it from init()")
+        print(path + " not found, computing it from init()")
         value = init()
-        pickle.dump(value, open(path, "wb"))
-    return value
+        try:
+            pickle.dump(value, open(path, "wb"))
+        except Exception as e:
+            print("could not pickle: " + e)
+        return value
