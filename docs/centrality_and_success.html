@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The world of actors – centrality_and_success</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">The world of actors</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The world of actors</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">The world of actors</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Data story</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./full_network.html" class="sidebar-item-text sidebar-link">Full actor network characteristics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./belgian.html" class="sidebar-item-text sidebar-link">The belgian actor subnetwork</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./growth.html" class="sidebar-item-text sidebar-link">Analysis of network growth</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./centrality_and_success.html" class="sidebar-item-text sidebar-link active">Centrality in actor graph and popularity. Are they linked?</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#centrality-in-actor-graph-and-popularity.-are-they-linked" id="toc-centrality-in-actor-graph-and-popularity.-are-they-linked" class="nav-link active" data-scroll-target="#centrality-in-actor-graph-and-popularity.-are-they-linked">Centrality in actor graph and popularity. Are they linked?</a>
+  <ul class="collapse">
+  <li><a href="#computing-centrality" id="toc-computing-centrality" class="nav-link" data-scroll-target="#computing-centrality">Computing centrality</a>
+  <ul class="collapse">
+  <li><a href="#who-are-the-most-central-actors" id="toc-who-are-the-most-central-actors" class="nav-link" data-scroll-target="#who-are-the-most-central-actors">Who are the most central actors</a></li>
+  </ul></li>
+  <li><a href="#comparing-centrality-to-pageviews" id="toc-comparing-centrality-to-pageviews" class="nav-link" data-scroll-target="#comparing-centrality-to-pageviews">Comparing centrality to pageviews</a>
+  <ul class="collapse">
+  <li><a href="#naïve-visualisation" id="toc-naïve-visualisation" class="nav-link" data-scroll-target="#naïve-visualisation">Naïve visualisation</a></li>
+  <li><a href="#the-impact-of-movie-count" id="toc-the-impact-of-movie-count" class="nav-link" data-scroll-target="#the-impact-of-movie-count">The impact of movie count</a></li>
+  <li><a href="#the-ab-tests" id="toc-the-ab-tests" class="nav-link" data-scroll-target="#the-ab-tests">The A/B tests</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="centrality-in-actor-graph-and-popularity.-are-they-linked" class="level1">
+<h1>Centrality in actor graph and popularity. Are they linked?</h1>
+<p>We want to use wikipedia pageviews as a proxy for popularity, and try to find a correlation the centrality of actors in the actor graph. For this we used the <a href="https://github.com/epfl-ada/2022/blob/main/Homework/02%20-%20Regression%20Observational%20Studies%20Stats%20and%20Supervised%20Learning/data/all_entities.csv.gz">dataset of pageviews</a> from Homework 2. Since Wikipedia was founded at the start of the century, pageviews might not be relevant for older actors. To eliminate this possible bias we only considered only actors having played in recent movies and formed the actor-graph only based on the recent movies.</p>
+<p>We therefore consider 49481 actors accross 41039 movies, 4631 of which (the actors) we have the pageview count.</p>
+<div class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;AxesSubplot: xlabel='pageviews', ylabel='Count'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="computing-centrality" class="level2">
+<h2 class="anchored" data-anchor-id="computing-centrality">Computing centrality</h2>
+<p>We focused on three metrics of centrality: - Degree centrality: With how many other actors have the actors played - Eigenvector centrality - Betweenness: how much an actor bridges communities of actors</p>
+<section id="who-are-the-most-central-actors" class="level3">
+<h3 class="anchored" data-anchor-id="who-are-the-most-central-actors">Who are the most central actors</h3>
+<p>For those interested, we list here the most central actors.</p>
+<div class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>degree_centrality</th>
+      <th>actor_name</th>
+      <th>fb_actor_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>70</th>
+      <td>0.011601</td>
+      <td>Anupam Kher</td>
+      <td>/m/0292l3</td>
+    </tr>
+    <tr>
+      <th>744</th>
+      <td>0.010853</td>
+      <td>Jane Lynch</td>
+      <td>/m/07m77x</td>
+    </tr>
+    <tr>
+      <th>748</th>
+      <td>0.010287</td>
+      <td>Samuel L. Jackson</td>
+      <td>/m/0f5xn</td>
+    </tr>
+    <tr>
+      <th>710</th>
+      <td>0.009903</td>
+      <td>David Koechner</td>
+      <td>/m/059j1m</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>0.009863</td>
+      <td>Justin Long</td>
+      <td>/m/07cjqy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>eigenvector_centrality</th>
+      <th>actor_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1150</th>
+      <td>0.095907</td>
+      <td>David Strathairn</td>
+    </tr>
+    <tr>
+      <th>6434</th>
+      <td>0.095699</td>
+      <td>Nicole Kidman</td>
+    </tr>
+    <tr>
+      <th>4889</th>
+      <td>0.095603</td>
+      <td>Clive Owen</td>
+    </tr>
+    <tr>
+      <th>6102</th>
+      <td>0.094613</td>
+      <td>Parker Posey</td>
+    </tr>
+    <tr>
+      <th>4467</th>
+      <td>0.094151</td>
+      <td>Rodrigo Santoro</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>betweenness_centrality</th>
+      <th>actor_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>70</th>
+      <td>0.019429</td>
+      <td>Anupam Kher</td>
+    </tr>
+    <tr>
+      <th>5728</th>
+      <td>0.011046</td>
+      <td>Lee Byung-Hun</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.010051</td>
+      <td>Nassar</td>
+    </tr>
+    <tr>
+      <th>6198</th>
+      <td>0.009872</td>
+      <td>Peter Stormare</td>
+    </tr>
+    <tr>
+      <th>5257</th>
+      <td>0.009498</td>
+      <td>Vera Farmiga</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="comparing-centrality-to-pageviews" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-centrality-to-pageviews">Comparing centrality to pageviews</h2>
+<section id="naïve-visualisation" class="level3">
+<h3 class="anchored" data-anchor-id="naïve-visualisation">Naïve visualisation</h3>
+<p>We first try to visualise the two values together.</p>
+<p>The correlations we found were very modest with R^2 values of 0.016, 0.013, and 0.007 respectively</p>
+</section>
+<section id="the-impact-of-movie-count" class="level3">
+<h3 class="anchored" data-anchor-id="the-impact-of-movie-count">The impact of movie count</h3>
+<div class="cell" data-execution_count="18">
+<div class="cell-output cell-output-stdout">
+<pre><code>For movie count.
+    We find an average increase of 50.742% in pageviews per 10x increase in movie count
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       4.7326      0.015    324.735      0.000       4.704       4.761
+movie_count     0.1782      0.018      9.787      0.000       0.143       0.214
+===============================================================================</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>For degree centrality.
+    We find an average increase of 3.7x in centrality per 10x increase in movie count
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -3.6732      0.007   -529.463      0.000      -3.687      -3.660
+movie_count     0.5656      0.009     65.250      0.000       0.549       0.583
+===============================================================================
+
+For eigenvector centrality.
+    We find an average increase of 19.8x in centrality per 10x increase in movie count
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -4.8026      0.026   -187.939      0.000      -4.853      -4.753
+movie_count     1.2970      0.032     40.620      0.000       1.234       1.360
+===============================================================================
+
+For betweenness centrality.
+    We find an average increase of 10.7x in centrality per 10x increase in movie count
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -5.3659      0.042   -126.906      0.000      -5.449      -5.283
+movie_count     1.0284      0.040     25.452      0.000       0.949       1.108
+===============================================================================
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-21-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-21-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Here the values are better correlated, with R^2 values of 0.479, 0.263, and 0.212 respectively. Movie count having a significant correlation with pageviews as well as with centrality, it acts as a confounder. We therefore aim to isolate the effects of centrality from those of movie count by using A/B testing</p>
+</section>
+<section id="the-ab-tests" class="level3">
+<h3 class="anchored" data-anchor-id="the-ab-tests">The A/B tests</h3>
+<p>The A/B test is done by making pairs of actors with similar numbers of movies (Here similar means that their number of movies are less than 5% different) such that the first actor has a lower centrality than the second.</p>
+<div class="cell" data-execution_count="57">
+<div class="cell-output cell-output-stdout">
+<pre><code>For degree centrality.
+    We find an average increase of -2.43% in pageviews per 2x increase in centrality
+=======================================================================================
+                          coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+Intercept               0.0007      0.020      0.033      0.974      -0.038       0.040
+logratio_centrality    -0.0355      0.008     -4.231      0.000      -0.052      -0.019
+=======================================================================================
+
+For eigenvector centrality.
+    We find an average increase of 4.73% in pageviews per 2x increase in centrality
+=======================================================================================
+                          coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+Intercept              -0.0351      0.019     -1.884      0.060      -0.072       0.001
+logratio_centrality     0.0667      0.003     23.301      0.000       0.061       0.072
+=======================================================================================
+</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/dario/.conda/envs/ada/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log2
+  result = getattr(ufunc, method)(*inputs, **kwargs)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>For betweenness centrality.
+    We find an average increase of 2.58% in pageviews per 2x increase in centrality
+=======================================================================================
+                          coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+Intercept               0.2812      0.026     10.966      0.000       0.231       0.331
+logratio_centrality     0.0367      0.004      9.174      0.000       0.029       0.045
+=======================================================================================
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-25-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-25-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-25-output-6.png" class="img-fluid"></p>
+</div>
+</div>
+<p>In the end we find very little increases in pageviews when varying the centrality of actors. There is even a slight decrease concerning the degree centrality, although it is not statistically significant. The largest increase is with the eigenvalue centrality, with an average increase of 4.73% in pageviews per 2x increase in centrality, but with an R^2 value of 0.007. We conclude that if there is a relationship between the centrality of actors and their popularity, it is barely noticeable and not interesting.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
