@@ -169,12 +169,9 @@ ul.task-list li input[type="checkbox"] {
 <h1>Centrality in actor graph and popularity. Are they linked?</h1>
 <p>We want to use wikipedia pageviews as a proxy for popularity, and try to find a correlation the centrality of actors in the actor graph. For this we used the <a href="https://github.com/epfl-ada/2022/blob/main/Homework/02%20-%20Regression%20Observational%20Studies%20Stats%20and%20Supervised%20Learning/data/all_entities.csv.gz">dataset of pageviews</a> from Homework 2. Since Wikipedia was founded at the start of the century, pageviews might not be relevant for older actors. To eliminate this possible bias we only considered only actors having played in recent movies and formed the actor-graph only based on the recent movies.</p>
 <p>We therefore consider 49481 actors accross 41039 movies, 4631 of which (the actors) we have the pageview count.</p>
-<div class="cell" data-execution_count="29">
-<div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>&lt;AxesSubplot: xlabel='pageviews', ylabel='Count'&gt;</code></pre>
-</div>
+<div class="cell" data-execution_count="58">
 <div class="cell-output cell-output-display">
-<p><img src="centrality_and_success_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+<p><img src="centrality_and_success_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="computing-centrality" class="level2">
@@ -392,7 +389,7 @@ movie_count     1.0284      0.040     25.452      0.000       0.949       1.108
 <section id="the-ab-tests" class="level3">
 <h3 class="anchored" data-anchor-id="the-ab-tests">The A/B tests</h3>
 <p>The A/B test is done by making pairs of actors with similar numbers of movies (Here similar means that their number of movies are less than 5% different) such that the first actor has a lower centrality than the second.</p>
-<div class="cell" data-execution_count="57">
+<div class="cell" data-execution_count="61">
 <div class="cell-output cell-output-stdout">
 <pre><code>For degree centrality.
     We find an average increase of -2.43% in pageviews per 2x increase in centrality
@@ -411,14 +408,8 @@ For eigenvector centrality.
 Intercept              -0.0351      0.019     -1.884      0.060      -0.072       0.001
 logratio_centrality     0.0667      0.003     23.301      0.000       0.061       0.072
 =======================================================================================
-</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/dario/.conda/envs/ada/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log2
-  result = getattr(ufunc, method)(*inputs, **kwargs)</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>For betweenness centrality.
+
+For betweenness centrality.
     We find an average increase of 2.58% in pageviews per 2x increase in centrality
 =======================================================================================
                           coef    std err          t      P&gt;|t|      [0.025      0.975]
@@ -429,13 +420,13 @@ logratio_centrality     0.0367      0.004      9.174      0.000       0.029     
 </code></pre>
 </div>
 <div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="centrality_and_success_files/figure-html/cell-25-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
 <p><img src="centrality_and_success_files/figure-html/cell-25-output-4.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="centrality_and_success_files/figure-html/cell-25-output-5.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="centrality_and_success_files/figure-html/cell-25-output-6.png" class="img-fluid"></p>
 </div>
 </div>
 <p>In the end we find very little increases in pageviews when varying the centrality of actors. There is even a slight decrease concerning the degree centrality, although it is not statistically significant. The largest increase is with the eigenvalue centrality, with an average increase of 4.73% in pageviews per 2x increase in centrality, but with an R^2 value of 0.007. We conclude that if there is a relationship between the centrality of actors and their popularity, it is barely noticeable and not interesting.</p>
