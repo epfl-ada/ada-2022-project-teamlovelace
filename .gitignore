@@ -9,13 +9,6 @@ data/raw/*
 # include the metadata.txt
 !data/raw/index.html
 
-*.old.*
-
-# we cannot legally distribute the papers :(
-papers/*.pdf
-
-
-.DS_Store
 
 
 # Byte-compiled / optimized / DLL files

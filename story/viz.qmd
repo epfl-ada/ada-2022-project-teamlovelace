@@ -1,0 +1,156 @@
+---
+title: "Shorthest path Vizualization"
+execute:
+  echo: false
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+```{ojs}
+//base https://stackoverflow.com/questions/32527026/shortest-path-in-javascript
+function Graph() {
+  var neighbors = this.neighbors = {};
+  this.addEdge = function (u, v, val) {
+    if (neighbors[u] === undefined) {
+      neighbors[u] = [];
+    }
+    neighbors[u].push(({id: v, value: val}));
+    if (neighbors[v] === undefined) {
+      neighbors[v] = [];
+    }           
+    neighbors[v].push(({id: u, value: val}));
+  };
+
+  return this;
+}
+
+function shortestPath(graph, source, target) {
+  if (source == target) {
+    return source;
+  }
+  var queue = [ source ],
+      visited = { [source]: true },
+      predecessor = {},
+      tail = 0;
+  while (tail < queue.length) {
+    var u = queue[tail++],
+        neighbors = graph.neighbors[u];
+    for (var i = 0; i < neighbors.length; ++i) {
+      var v = neighbors[i];
+      if (visited[v.id]) {
+        continue;
+      }
+      visited[v.id] = true;
+      if (v.id === target) {
+        var path = [ v ];
+        if (u !== source) {
+          path.push(({id: u, value: v.value}));
+          u = predecessor[u]; 
+        }
+        console.log(u)
+        while (u.id !== source) {
+          path.push(u);
+          u = predecessor[u.id];          
+        }
+        path.push(u);
+        path.reverse();
+        return path;
+      }
+      predecessor[v.id] = ({id: u, value: v.value});
+      queue.push(v.id);
+    }
+  }
+  return 'There is no path from ' + source + ' to ' + target;
+}
+```
+
+
+```{ojs}
+//| output: false
+d3 = require("d3")
+underscore = require("underscore")
+nodes = FileAttachment("/data/js_graph/nodes.json").json()
+names = nodes.map(x => x.name)
+edges = FileAttachment("/data/js_graph/edges.json").json()
+graph = new Graph()
+edges.forEach(x => graph.addEdge(x.source, x.target, x.value))
+```
+
+### Choose the first Actor
+```{ojs}
+viewof search1 = Inputs.search(names)
+viewof actor1 = Inputs.select(underscore.sample(search1, 100))
+```
+
+### Choose the second Actor
+```{ojs}
+viewof search2 = Inputs.search(names)
+viewof actor2 = Inputs.select(underscore.sample(search2, 100))
+```
+
+```{ojs}
+actor1_node = nodes.filter(x => x.name == actor1)[0]
+actor2_node = nodes.filter(x => x.name == actor2)[0]
+actor1_node
+actor2_node
+```
+
+```{ojs}
+pathEdges = shortestPath(graph, actor1_node.id, actor2_node.id)
+pathEdges
+pathNodes = pathEdges.map(x => nodes.filter(y => y.id == x.id)[0])
+pathNodes
+```
+
+```{ojs}
+data = ({
+    nodes: nodes,
+    links: edges,
+})
+DOM.text("HEY")
+/* width = 900;
+height = 600;
+svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [-width / 2, -height / 2, width, height])
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+link = svg
+    .selectAll("line")
+    .data(data.links)
+    .enter()
+    .append("line")
+    .style("stroke", "#aaa")
+
+node = svg
+    .selectAll("circle")
+    .data(data.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", 20)
+    .style("fill", "#69b3a2")
+
+simulation = d3.forceSimulation(data.nodes)
+        .force("link", d3.forceLink()
+        .id(function(d) { return d.id; })
+        .links(data.links)
+    )
+    .force("charge", d3.forceManyBody().strength(-400))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .on("end", ticked);
+
+function ticked() {
+    link
+    .attr("x1", function(d) { return d.source.x; })
+    .attr("y1", function(d) { return d.source.y; })
+    .attr("x2", function(d) { return d.target.x; })
+    .attr("y2", function(d) { return d.target.y; });
+
+    node
+    .attr("cx", function (d) { return d.x+6; })
+    .attr("cy", function(d) { return d.y-6; });
+} */
+```
