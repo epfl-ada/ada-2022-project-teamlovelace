@@ -8,7 +8,9 @@ data/generated/*
 data/raw/*
 # include the metadata.txt
 !data/raw/index.html
-
+# create story data subfolders
+!story/data/js_graph
+story/data/js_graph/*
 
 
 # Byte-compiled / optimized / DLL files
