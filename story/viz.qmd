@@ -38,6 +38,7 @@ function shortestPath(graph, source, target) {
   if (source == target) {
     return source;
   }
+  console.log("Start")
   var queue = [ source ],
       visited = { [source]: true },
       predecessor = {},
@@ -56,11 +57,13 @@ function shortestPath(graph, source, target) {
         if (u !== source) {
           path.push(({id: u, value: v.value}));
           u = predecessor[u]; 
+        } else {
+          path.push(({id: u, value: v.value}));
+          return path;
         }
-        console.log(u)
         while (u.id !== source) {
           path.push(u);
-          u = predecessor[u.id];          
+          u = predecessor[u.id];      
         }
         path.push(u);
         path.reverse();
@@ -70,6 +73,7 @@ function shortestPath(graph, source, target) {
       queue.push(v.id);
     }
   }
+  console.log("End")
   return [];
 }
 ```
@@ -78,11 +82,11 @@ function shortestPath(graph, source, target) {
 ```{ojs}
 d3 = require("d3")
 underscore = require("underscore")
-nodes = FileAttachment("/data/js_graph/nodes.json").json()
+nodes_zip = FileAttachment("/data/js_graph/nodes.json.zip").zip()
 names = nodes.map(x => x.name)
-edges1 = FileAttachment("/data/js_graph/edges1.json").json()
-edges2 = FileAttachment("/data/js_graph/edges2.json").json()
-edges = edges1.concat(edges2)
+edges_zip = FileAttachment("/data/js_graph/edges.json.zip").zip()
+nodes = nodes_zip.file(nodes_zip.filenames[0]).json()
+edges = edges_zip.file(edges_zip.filenames[0]).json()
 ```
 
 ```{ojs}
@@ -203,7 +207,7 @@ colors = d3.scaleOrdinal()
 
 ```{ojs}
 chart = {
-  var height = 600;
+  var height = 900;
   var width = 900;
   var svg = d3.create("svg")
     .attr("width", width)
