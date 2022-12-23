@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./viz.html" class="sidebar-item-text sidebar-link">Shorthest path vizualization</a>
+  <a href="./viz.html" class="sidebar-item-text sidebar-link">Shorthest path visualization</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Centrality in actor graph and popularity. Are they linked?</h1>
 <p>We want to use wikipedia pageviews as a proxy for popularity, and try to find a correlation the centrality of actors in the actor graph. For this we used the <a href="https://github.com/epfl-ada/2022/blob/main/Homework/02%20-%20Regression%20Observational%20Studies%20Stats%20and%20Supervised%20Learning/data/all_entities.csv.gz">dataset of pageviews</a> from Homework 2. Since Wikipedia was founded at the start of the century, pageviews might not be relevant for older actors. To eliminate this possible bias we only considered only actors having played in recent movies and formed the actor-graph only based on the recent movies.</p>
 <p>We therefore consider 49481 actors accross 41039 movies, 4631 of which (the actors) we have the pageview count.</p>
-<div class="cell" data-execution_count="58">
+<div class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <p><img src="centrality_and_success_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
@@ -190,8 +190,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="who-are-the-most-central-actors" class="level3">
 <h3 class="anchored" data-anchor-id="who-are-the-most-central-actors">Who are the most central actors</h3>
 <p>For those interested, we list here the most central actors.</p>
-<div class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
 
 <div>
 
@@ -201,7 +201,6 @@ ul.task-list li input[type="checkbox"] {
       <th></th>
       <th>degree_centrality</th>
       <th>actor_name</th>
-      <th>fb_actor_id</th>
     </tr>
   </thead>
   <tbody>
@@ -209,39 +208,34 @@ ul.task-list li input[type="checkbox"] {
       <th>70</th>
       <td>0.011601</td>
       <td>Anupam Kher</td>
-      <td>/m/0292l3</td>
     </tr>
     <tr>
       <th>744</th>
       <td>0.010853</td>
       <td>Jane Lynch</td>
-      <td>/m/07m77x</td>
     </tr>
     <tr>
       <th>748</th>
       <td>0.010287</td>
       <td>Samuel L. Jackson</td>
-      <td>/m/0f5xn</td>
     </tr>
     <tr>
       <th>710</th>
       <td>0.009903</td>
       <td>David Koechner</td>
-      <td>/m/059j1m</td>
     </tr>
     <tr>
       <th>202</th>
       <td>0.009863</td>
       <td>Justin Long</td>
-      <td>/m/07cjqy</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
 
 <div>
 
@@ -284,8 +278,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
 
 <div>
 
@@ -300,28 +294,28 @@ ul.task-list li input[type="checkbox"] {
   <tbody>
     <tr>
       <th>70</th>
-      <td>0.019429</td>
+      <td>0.022059</td>
       <td>Anupam Kher</td>
     </tr>
     <tr>
+      <th>313</th>
+      <td>0.013711</td>
+      <td>Michael Madsen</td>
+    </tr>
+    <tr>
       <th>5728</th>
-      <td>0.011046</td>
+      <td>0.013613</td>
       <td>Lee Byung-Hun</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>0.010051</td>
-      <td>Nassar</td>
-    </tr>
-    <tr>
-      <th>6198</th>
-      <td>0.009872</td>
-      <td>Peter Stormare</td>
-    </tr>
-    <tr>
       <th>5257</th>
-      <td>0.009498</td>
+      <td>0.011191</td>
       <td>Vera Farmiga</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.009740</td>
+      <td>Nassar</td>
     </tr>
   </tbody>
 </table>
