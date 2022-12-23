@@ -8,13 +8,15 @@ format:
     code-summary: "Show the code"
 ---
 
-### Disclaimer
-This page might take some time 
+On this page you can explore the links between you favorite actors ! Just choose in the inputs below and the shortest path between the both will be displayed, if it exists. 
+
+The canvas here is limited so some node might not be displayed correctly, in that case you can just move the nodes around. Also you can hover over the nodes and links, if the text is difficult to read. \
+**Quick disclaimer**: this page might take some time to load because we need to load the entire graph to do real time computation.
 
 
 ```{ojs}
 // base https://stackoverflow.com/questions/32527026/shortest-path-in-javascript
-// wanted to do better than a simple bfs but performance seems great
+// wanted to do better than a simple bfs but performance seems okay
 // so leaving this modified code sample
 function Graph() {
   var neighbors = this.neighbors = {};
@@ -107,13 +109,13 @@ function transform_dict_name(nodes) {
 name_to_node = transform_dict_name(nodes)
 ```
 
-### Choose the first Actor
+### Choose the first Actor:
 ```{ojs}
 viewof search1 = Inputs.search(names)
 viewof actor1 = Inputs.select(underscore.sample(search1, 100))
 ```
 
-### Choose the second Actor
+### Choose the second Actor:
 ```{ojs}
 viewof search2 = Inputs.search(names)
 viewof actor2 = Inputs.select(underscore.sample(search2, 100))
@@ -232,7 +234,7 @@ chart = {
       if (d.group === "Shortest path") {
         return -3000;
       } else {
-        return -100;
+        return -50;
       }
     }).distanceMax(450).distanceMin(85))
     .force("link", d3.forceLink().id(d => d.id));
