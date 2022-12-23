@@ -5,10 +5,15 @@ author:
   - Dario Goedtkindt
   - Nicolas Wagner
   - Nicole Vadot
-date: Winter 2022
+date: 12-23-2022
 bibliography: bibliography.bib
+toc: false
 ---
 
 # Abstract
 
 The well-known concept of [six degrees of separation](https://en.wikipedia.org/wiki/Six\_degrees\_of\_separation) descibes that one can link anyone to any other person by a "friend of a friend" chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, standing for Social Network Analysis [@tabassum_2018] and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world's social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?
+
+# Source code
+
+[The source code of this project is available here](https://github.com/epfl-ada/ada-2022-project-teamlovelace). This website compiles the notebooks under the `story` directory.

@@ -5,15 +5,14 @@ title: "Conclusion"
 In this project, we analyzed a network of actors linked by the movies they played in. We found that the network exhibits a power-law degree distribution and that it is mainly composed of a single giant cluster, which is a common characteristic of many social networks.
 
 Our analysis of a subset of Belgian actors using classical SNA metrics provided further insight into the structure and dynamics of such an actor network. We calculated metrics such as degree centrality, betweenness centrality, eigenvector centrality and clustering methods, which capture the importance and influence of individual actors within the network. 
-We also examined how the network grows and changes as new actors join and new movies are made //@TODO add a sentence. 
+We also examined how the network grows and changes as new actors join and new movies are made. For this, the preferential attachment model was used, and we showed that the scaling exponent $\alpha$ not only was non-zero (indicating that new actors are more likely to connect to already well-connected peers), but also grew in time (indicating that preferential attachment plays more of an important role today than at beginning of the 20th century).
 
-In addition, we analyzed homophily between nodes based on attributes such as gender, country, and age. Our analysis showed that these attributes may influence the formation and maintenance of relationships within the network. For example, we found that actors are more likely to be connected to other actors from the same country but on the other hand, some attribute (as age, height, even gender) were not significants to affirm a relevant role in the fomation of link between actors by similarity. 
+In addition, we analyzed homophily between nodes based on attributes such as gender, country, and age. Our analysis showed that these attributes may influence the formation and maintenance of relationships within the network. For example, we found that actors are more likely to be connected to other actors from the same country. However other attributes, such as age, height, or gender were not found to play a significant role in the presence of connections.
 
-Finally, we explored the relationship between a node's centrality in the network and the popularity of the actor. Our analysis showed that there is a weak, non-significant correlation between these two variables. This finding suggests that other factors may influence an actor's popularity. More various data would be needed to better understand the complex relationship between an actor's node in the network and its popularity.
+Finally, we explored the relationship between a node's centrality in the network and the popularity of the actor. Our analysis showed that there is a weak, non-significant correlation between these two variables. This finding suggests that other unobserved factors may influence an actor's popularity. Further exploration in the form of new feature acquisitions would be needed to better understand the complex relationship between an actor's node in the network and its popularity.
 
-To conclude, we have seen that the actor's network we generated, displayed as we suggested, some of the same properties as real-life social networks.
+We conclude by stating that as we suggested, the actors network displays similar properties to real-life social networks.
 
-\
 \
 \
 Also feel free to try the shortest path visualization in the next section !

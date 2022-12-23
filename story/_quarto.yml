@@ -5,6 +5,9 @@ project:
 website:
   title: "The world of actors"
   sidebar:
+    tools:
+    - icon: github
+      href: https://github.com/epfl-ada/ada-2022-project-teamlovelace
     style: docked
     search: true
     contents:

@@ -6,6 +6,7 @@ format:
   html:
     code-fold: true
     code-summary: "Show the code"
+toc: false
 ---
 
 On this page you can explore the links between you favorite actors ! Just choose in the inputs below and the shortest path between the both will be displayed, if it exists. 
