@@ -1,0 +1,350 @@
+---
+title: "Shorthest path vizualization"
+execute:
+  echo: false
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+On this page you can explore the links between you favorite actors ! Just choose in the inputs below and the shortest path between the both will be displayed, if it exists. 
+
+The canvas here is limited so some node might not be displayed correctly, in that case you can just move the nodes around. Also you can hover over the nodes and links, if the text is difficult to read. \
+**Quick disclaimer**: this page might take some time to load because we need to load the entire graph to do real time computation.
+
+
+```{ojs}
+// base https://stackoverflow.com/questions/32527026/shortest-path-in-javascript
+// wanted to do better than a simple bfs but performance seems okay
+// so leaving this modified code sample
+function Graph() {
+  var neighbors = this.neighbors = {};
+  this.addEdge = function (u, v, val) {
+    if (neighbors[u] === undefined) {
+      neighbors[u] = [];
+    }
+    neighbors[u].push(({id: v, value: val}));
+    if (neighbors[v] === undefined) {
+      neighbors[v] = [];
+    }           
+    neighbors[v].push(({id: u, value: val}));
+  };
+
+  return this;
+}
+
+function shortestPath(graph, source, target) {
+  if (source == target) {
+    return source;
+  }
+  var queue = [ source ],
+      visited = { [source]: true },
+      predecessor = {},
+      tail = 0;
+  while (tail < queue.length) {
+    var u = queue[tail++],
+        neighbors = graph.neighbors[u];
+    for (var i = 0; i < neighbors.length; ++i) {
+      var v = neighbors[i];
+      if (visited[v.id]) {
+        continue;
+      }
+      visited[v.id] = true;
+      if (v.id === target) {
+        var path = [ v ];
+        if (u !== source) {
+          path.push(({id: u, value: v.value}));
+          u = predecessor[u]; 
+        }
+        console.log(u)
+        while (u.id !== source) {
+          path.push(u);
+          u = predecessor[u.id];          
+        }
+        path.push(u);
+        path.reverse();
+        return path;
+      }
+      predecessor[v.id] = ({id: u, value: v.value});
+      queue.push(v.id);
+    }
+  }
+  return [];
+}
+```
+
+
+```{ojs}
+d3 = require("d3")
+underscore = require("underscore")
+nodes = FileAttachment("/data/js_graph/nodes.json").json()
+names = nodes.map(x => x.name)
+edges1 = FileAttachment("/data/js_graph/edges1.json").json()
+edges2 = FileAttachment("/data/js_graph/edges2.json").json()
+edges = edges1.concat(edges2)
+```
+
+```{ojs}
+function get_graph(edges) {
+  var g = new Graph();
+  edges.forEach(x => g.addEdge(x.source, x.target, x.value));
+  return g;
+}
+graph = get_graph(edges)
+```
+
+```{ojs}
+function transform_dict_id(nodes) {
+  var dict = {};
+  nodes.forEach(x => dict[x.id] = x);
+  return dict;
+}
+id_to_node = transform_dict_id(nodes)
+function transform_dict_name(nodes) {
+  var dict = {};
+  nodes.forEach(x => dict[x.name] = x);
+  return dict;
+}
+name_to_node = transform_dict_name(nodes)
+```
+
+### Choose the first Actor:
+```{ojs}
+viewof search1 = Inputs.search(names)
+viewof actor1 = Inputs.select(underscore.sample(search1, 100))
+```
+
+### Choose the second Actor:
+```{ojs}
+viewof search2 = Inputs.search(names)
+viewof actor2 = Inputs.select(underscore.sample(search2, 100))
+```
+
+```{ojs}
+actor1_node = name_to_node[actor1]
+actor2_node = name_to_node[actor2]
+```
+
+```{ojs}
+//| output: false
+path = {
+  if (graph.neighbors !== undefined && actor1 !== null && actor2 !== null && actor1 !== actor2) {
+    return shortestPath(graph, actor1_node.id, actor2_node.id);
+  } else {
+    return [];
+  }
+}
+pathNodes = path.map(x => id_to_node[x.id])
+pathNodes.forEach(x => x["group"] = "Shortest path")
+pathEdges = path.reduce((xs, x) => {
+  var last = xs.pop()
+  if (last != undefined) {
+    xs.push({source: last.id, target: x.id, value: last.value, group: "Shortest path"})
+  }
+  xs.push(x)
+  return xs
+}, [])
+useless = pathEdges.pop()
+```
+
+```{ojs}
+function get_neigh_node(pathNodes) {
+  var pathNId = pathNodes.map(x => x.id);
+  var pathNeighDict = pathNodes.flatMap(x => graph.neighbors[x.id]).filter(x => !pathNId.includes(x.id));
+  var pathNeigh = {};
+  pathNeighDict.map(x => {
+    if (pathNeigh[x.id] === undefined) {
+      var n = id_to_node[x.id];
+      n["count"] = 1;
+      pathNeigh[x.id] = n;
+    } else {
+      pathNeigh[x.id]["count"] += 1;
+    }
+  })
+  var r = [];
+  Object.entries(pathNeigh).forEach(function([key, value]) {
+    var group = ""
+    if (value.count >= 4) {
+      group = "4+-connected";
+    } else {
+      group = value.count + "-connected";
+    }
+    r.push({id: value.id, name: value.name, group: group})
+  }); 
+  return r;
+}
+pathNeighNodes = get_neigh_node(pathNodes).filter(x => x.group !== "1-connected" && x.group !== "2-connected")
+function get_neigh_edges(pathNodes, pathNeighNodes) {
+  var pathNeighNodesId = pathNeighNodes.map(x => x.id);
+  var pathNeighDict = pathNodes.flatMap(x => graph.neighbors[x.id].filter(z => pathNeighNodesId.includes(z.id)).map(y => ({source: x.id, target: y.id, value: y.value, group: "Neighbors"})));
+  return pathNeighDict;
+}
+pathNeighEdges = get_neigh_edges(pathNodes, pathNeighNodes)
+data = ({
+    nodes: pathNodes.concat(pathNeighNodes),
+    links: pathEdges.concat(pathNeighEdges),
+})
+```
+
+```{ojs}
+function output_path_exist() {
+  if (graph.neighbors !== undefined && path !== undefined && path.length === 0) {
+    return "There is no path between " + actor1 + " and " + actor2 + ".";
+  } else {
+    return "";
+  }
+}
+DOM.text(output_path_exist())
+colors = d3.scaleOrdinal()
+  .domain(["Shortest path", "3-connected", "4+-connected"])
+  .range(['#4797C9','#fff686','#9e79db']);
+```
+
+```{ojs}
+chart = {
+  var height = 600;
+  var width = 900;
+  var svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [-width / 2, -height / 2, width, height])
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+  var legend = svg.selectAll("legend")
+    .data(colors.domain())
+    .enter()
+    .append("g") 
+    .attr("transform", (d, i) => `translate(${width / 2 - 120},${i * 20 - height / 2 + 20})`); 
+
+  legend.append("circle")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", 5)
+    .attr("fill", colors);
+
+  legend.append("text")
+    .attr("x", 10)
+    .attr("y", 5)
+    .text(d => d);
+
+  var simulation = d3.forceSimulation()
+    .force("center", d3.forceCenter())
+    .force("charge", d3.forceManyBody().strength(d => {
+      if (d.group === "Shortest path") {
+        return -3000;
+      } else {
+        return -50;
+      }
+    }).distanceMax(450).distanceMin(85))
+    .force("link", d3.forceLink().id(d => d.id));
+
+  var links = svg.selectAll("links")
+    .data(data.links)
+    .enter()
+    .append("line")
+    .attr("stroke", "#BDBDBD")
+    .attr("stroke-width", l => {
+      if (l.group === "Shortest path") {
+        return l.value.length * 5;
+      } else {
+        return 1;
+      }
+    });
+
+  links.append("title").text(l => l.value);
+
+  var linkText = svg.selectAll("links")
+    .data(data.links)
+    .enter()
+    .append("text")
+	  .attr("fill", "#0022B7")
+    .text(l => {
+      if (l.group === "Shortest path") {
+        return l.value;
+      } else {
+        return "";
+      }
+    });
+
+  var nodes = svg.selectAll("nodes")
+    .data(data.nodes)
+    .enter()
+    .append("g")
+    .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended));
+
+  nodes.append("title").text(d => d.name);
+
+  var circles = nodes.append("circle")
+    .attr("class", "circle")
+    .attr("r", d => {
+      if (d.group === "Shortest path") {
+        return 30;
+      } else {
+        return 5;
+      }
+    })
+    .attr("fill", d => colors(d.group))
+    .attr("stroke", "#ffffff")
+    .attr("stroke-width", 2)
+
+  var text = nodes.append("text")
+    .style("fill", "black")
+    .style("font-weight", "bold")
+    .attr("dx", 0)
+    .attr("dy", 5)
+    .attr("text-anchor","middle")
+    .text(d => {
+      if (d.group === "Shortest path") {
+        return d.name;
+      } else {
+        return "";
+      }
+    });
+
+  simulation.nodes(data.nodes);
+  simulation.force("link").links(data.links)
+  simulation.on("tick", function () {
+    links.attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    nodes.attr("transform", d => "translate(" + d.x + "," + d.y + ")")
+
+    linkText.attr("x", function(d) {
+	        if (d.target.x > d.source.x) { return (d.source.x + (d.target.x - d.source.x)/2); }
+	        else { return (d.target.x + (d.source.x - d.target.x)/2); }
+	    })
+	    .attr("y", function(d) {
+	        if (d.target.y > d.source.y) { return (d.source.y + (d.target.y - d.source.y)/2); }
+	        else { return (d.target.y + (d.source.y - d.target.y)/2); }
+	    });
+  });
+
+  function dragstarted(event) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    event.subject.fx = event.subject.x;
+    event.subject.fy = event.subject.y;
+  };
+  
+  function dragged(event) {
+    event.subject.fx = event.x;
+    event.subject.fy = event.y;
+  };
+  
+  function dragended(event) {
+    if (!event.active) simulation.alphaTarget(0);
+    event.subject.fx = null;
+    event.subject.fy = null;
+  };
+
+  
+  
+  return Object.assign(svg.node(), {scales: d3.schemeTableau10});
+}
+```
+

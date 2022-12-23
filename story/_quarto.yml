@@ -16,6 +16,7 @@ website:
           - growth.ipynb
           - homophily.ipynb
           - centrality_and_success.ipynb
+      - viz.qmd
       - about.qmd
 
 format:
