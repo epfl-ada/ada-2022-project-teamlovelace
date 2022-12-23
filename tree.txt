@@ -8,6 +8,9 @@
 ├── data
 │   ├── generated
 │   │   ├── graph
+│   │   │   ├── ab_test_betweenness.pkl.gz
+│   │   │   ├── ab_test_degree.pkl.gz
+│   │   │   ├── ab_test_eigenvector.pkl.gz
 │   │   │   ├── actor_graph_full.grouped.pkl
 │   │   │   ├── actor_graph_full.ungrouped.pkl
 │   │   │   └── network_growth
@@ -82,4 +85,4 @@
 │   └── styles.css
 └── tree.txt
 
-14 directories, 68 files
+14 directories, 71 files
