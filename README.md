@@ -1,10 +1,18 @@
 # Connectivity in the world of actors, an interpretable social graph structure?
 
-## Abstract
+**[Website available here !](https://epfl-ada.github.io/ada-2022-project-teamlovelace/)**
 
-There is this famous idea of [six degrees of separation](https://en.wikipedia.org/wiki/Six\_degrees\_of\_separation) which tells us that we can link anyone to any other person by a "friend of a friend" chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, for [Social Network Analysis](https://www.researchgate.net/publication/324575362\_Social\_network\_analysis\_An\_overview?enrichId=rgreq-c79a6d16ab4fd028766f9a8985c87c93-XXX\&enrichSource=Y292ZXJQYWdlOzMyNDU3NTM2MjtBUzo4MzU2MTAzMTkyODIxNzZAMTU3NjIzNjQzMzIxMw%3D%3D\&el=1\_x\_3\&\_esc=publicationCoverPdf) and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world's social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?
+Or serve locally, by using for instance ``python -m http.server 8080 --directory docs``.
 
-## Research Questions
+Finalized notebook source code is available under `story/*.ipynb`, and are rendered on the website. Other source code, as well as exploration and draft notebooks are available under `src/*.ipynb`.
+
+## Project description (P2 milestone)
+
+### Abstract
+
+The well-known concept of [six degrees of separation](https://en.wikipedia.org/wiki/Six\_degrees\_of\_separation) descibes that one can link anyone to any other person by a "friend of a friend" chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, standing for Social Network Analysis [@tabassum_2018] and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world's social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?
+
+### Research Questions
 
 * How relationships change depending on the subset we are focusing on (movie genres, movie languages, actor gender, actor nationality, ...). Furthermore, how these graphs change over time and can hypothetically reflect historical events ?
 * What features are good predictors of connectivity, clustering ? Do hubs appear, and under what conditions ?
@@ -13,7 +21,7 @@ There is this famous idea of [six degrees of separation](https://en.wikipedia.or
 * Our null hypothesis is that the world of actors follows the same rules as real-life social networks : six-degree separation rule, power law distribution of degrees, etc. Therefore, we desire to show how this null hypothesis can be applied and interpreted for our actors relationships dataset.
 
 
-## Additional Datasets
+### Additional Datasets
 
 ### From wikidata
 
@@ -74,9 +82,9 @@ SELECT DISTINCT ?freebaseID ?tomatoScore WHERE {
 }
 ```
 
-## Methods
+### Methods
 
-### Preprocessing and selection of additional datasets
+#### Preprocessing and selection of additional datasets
 
 After a first transcription of the raw dataset into our notebook (preprocess.ipynb) (loading of `.txt` and `.tsv` files), we decided first to explore it without any additional datasets. First, we tried to verify the correctness of our data as much as we could and cleaned any strange looking value such as a height of 510 meters or an age of -7986 ! Then by exploring and analyzing the included features, we realized a lot of information was missing (for instance the actors' nationalities). This convinced us to seek additional datasets. 
 
@@ -89,7 +97,7 @@ Essentially, the preprocessing step was actually focused over going back and for
    * `src/preprocessing.ipynb` : load raw data and generate pickles, such that other exploration notebooks can easily access sanitized data
 
 
-### Exploratory analysis on the datasets (node-only exploration)
+#### Exploratory analysis on the datasets (node-only exploration)
 
 
 
@@ -101,7 +109,7 @@ Notebooks :
    * `src/exploration_temporal_graph.ipynb` : This notebook shows an example of a data pipeline to create and show dynamic/temporal graph. While the results are not that great yet and can be improved further, it still shows that we can handle this kind of data transformation.
 
 
-### Graph analysis (node and edge exploration)
+#### Graph analysis (node and edge exploration)
 
 Then, for a theoretical background on Social Network Analysis, we will base ourselves on [Tabassum 2018](https://www.researchgate.net/publication/324575362\_Social\_network\_analysis\_An\_overview?enrichId=rgreq-c79a6d16ab4fd028766f9a8985c87c93-XXX\&enrichSource=Y292ZXJQYWdlOzMyNDU3NTM2MjtBUzo4MzU2MTAzMTkyODIxNzZAMTU3NjIzNjQzMzIxMw%3D%3D\&el=1\_x\_3\&\_esc=publicationCoverPdf)) (in which mathematicals details are given). We will try to apply various methods (from the paper, and the ADA course) to help answer the questions posed above.
 
@@ -134,11 +142,11 @@ Notebooks :
 ![belgian_actors_graph](assets/belgian_actors_graph.png)
 *Belgian actor graph. Nodes are sized according to eigenvalue centrality and are colored according to (Louvain) community, and edges are colored according to the movie.*
 
-### Final review
+#### Final review
 
 Compose the DataStory around our datasets and create the GitHub website using [Quarto](https://quarto.org/) for the final submission.
 
-## Timeline
+### Timeline
 
    * Exploratory analysis on the datasets (mixed with hypothetical additional datasets) : 18.11.2022
    * Determination of the subsets of interest : 24.11.2022
@@ -148,7 +156,7 @@ Compose the DataStory around our datasets and create the GitHub website using [Q
    * Write site and story : 15.12.2022
    * **Milestone 3 submission : 23.12.2022**
 
-## Organization
+### Organization
 
    * Exploratory steps : Teammate Arthur, Dario, Nicolas, Nicole
    * Graph theory and network size investigation : 1 person
@@ -166,80 +174,13 @@ Original data from :
 - [http://www.cs.cmu.edu/~ark/personas/](http://www.cs.cmu.edu/~ark/personas/)
 - Wikidata (see Additional Datasets)
 
+### Website build
+
+Building the website requires [Quarto](https://quarto.org/). Run ``quarto render story`` to build to the `docs` folder.
+
 ### File structure
 
-Tree format : see ``tree.txt``
-
-```
-.
-├── assets
-│   └── belgian_actors_graph.png
-├── data
-│   ├── generated
-│   │   ├── graph
-│   │   │   ├── actor_graph_belgian_bymovie.dot
-│   │   │   ├── actor_graph_bymovie.csv
-│   │   │   ├── actor_graph_bymovie.edgelist.gz
-│   │   │   ├── actor_graph_dyn_uk
-│   │   │   └── actor_graph_unfiltered_bymovie.edgelist.gz
-│   │   └── preprocessed
-│   │       ├── actors.pkl
-│   │       ├── character_clusters.pkl
-│   │       ├── characters.pkl
-│   │       ├── movies.pkl
-│   │       ├── roles.pkl
-│   │       ├── summary.pkl
-│   │       └── tropes.pkl
-│   ├── publication
-│   └── raw
-│       ├── bamman+oconnor+smith.acl13.pdf
-│       ├── corenlp_plot_summaries.tar
-│       ├── extra
-│       │   ├── actor_id2nationality_id.csv
-│       │   ├── ethnic_groups.csv
-│       │   ├── movie_id2tomato_score.csv
-│       │   └── nationality_id2nationality.csv
-│       ├── index.html
-│       ├── MovieSummaries
-│       │   ├── character.metadata.tsv
-│       │   ├── movie.metadata.tsv
-│       │   ├── name.clusters.txt
-│       │   ├── plot_summaries.txt
-│       │   ├── README.txt
-│       │   └── tvtropes.clusters.txt
-│       └── MovieSummaries.tar.gz
-├── docs
-│   ├── about.html
-│   ├── data.html
-│   ├── index.html
-│   ├── search.json
-│   └── styles.css
-├── env.yaml
-├── papers
-│   ├── bibliography.bib
-│   └── Tabassum_2018_Social_Network_Analysis.pdf
-├── README.md
-├── runall.sh
-├── src
-│   ├── archive
-│   │   ├── exploration_cold_war.ipynb
-│   │   ├── exploration_raw.ipynb
-│   │   └── IDEAS.md
-│   ├── exploration_actor_graph.ipynb
-│   ├── exploration_actors_features.ipynb
-│   ├── exploration_actors_time.ipynb
-│   ├── exploration_belgian_actor_graph.ipynb
-│   ├── exploration_temporal_graph.ipynb
-│   ├── preprocess.ipynb
-│   └── utils.py
-├── story
-│   ├── about.qmd
-│   ├── data.qmd
-│   ├── index.qmd
-│   ├── _quarto.yml
-│   └── styles.css
-└── tree.txt
-```
+See [``tree.txt``](https://github.com/epfl-ada/ada-2022-project-teamlovelace/blob/main/tree.txt) for the full file structure of the project.
 
 ### Pipeline
 

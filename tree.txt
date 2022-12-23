@@ -1,14 +1,24 @@
 .
 ├── assets
-│   └── belgian_actors_graph.png
+│   ├── belgian_actors_graph.png
+│   ├── Screenshot from 2022-12-13 20-42-26.png
+│   ├── Screenshot from 2022-12-13 20-43-30.png
+│   ├── Screenshot from 2022-12-13 20-43-41.png
+│   └── Screenshot from 2022-12-13 21-01-28.png
 ├── data
 │   ├── generated
 │   │   ├── graph
-│   │   │   ├── actor_graph_belgian_bymovie.dot
-│   │   │   ├── actor_graph_bymovie.csv
-│   │   │   ├── actor_graph_bymovie.edgelist.gz
-│   │   │   ├── actor_graph_dyn_uk
-│   │   │   └── actor_graph_unfiltered_bymovie.edgelist.gz
+│   │   │   ├── actor_graph_full.grouped.pkl
+│   │   │   ├── actor_graph_full.ungrouped.pkl
+│   │   │   └── network_growth
+│   │   │       ├── actor_graph_full_degrees.npz
+│   │   │       ├── components.pkl
+│   │   │       ├── degree_distribution_year_bin.pkl
+│   │   │       ├── degree_distribution_year_qbin.pkl
+│   │   │       ├── pa_external_year_bin.pkl
+│   │   │       ├── pa_external_year_qbin.pkl
+│   │   │       ├── pa_internal_year_bin.pkl
+│   │   │       └── pa_internal_year_qbin.pkl
 │   │   └── preprocessed
 │   │       ├── actors.pkl
 │   │       ├── character_clusters.pkl
@@ -17,7 +27,6 @@
 │   │       ├── roles.pkl
 │   │       ├── summary.pkl
 │   │       └── tropes.pkl
-│   ├── publication
 │   └── raw
 │       ├── bamman+oconnor+smith.acl13.pdf
 │       ├── corenlp_plot_summaries.tar
@@ -25,7 +34,8 @@
 │       │   ├── actor_id2nationality_id.csv
 │       │   ├── ethnic_groups.csv
 │       │   ├── movie_id2tomato_score.csv
-│       │   └── nationality_id2nationality.csv
+│       │   ├── nationality_id2nationality.csv
+│       │   └── wikipedia_entities.csv
 │       ├── index.html
 │       ├── MovieSummaries
 │       │   ├── character.metadata.tsv
@@ -35,16 +45,7 @@
 │       │   ├── README.txt
 │       │   └── tvtropes.clusters.txt
 │       └── MovieSummaries.tar.gz
-├── docs
-│   ├── about.html
-│   ├── data.html
-│   ├── index.html
-│   ├── search.json
-│   └── styles.css
 ├── env.yaml
-├── papers
-│   ├── bibliography.bib
-│   └── Tabassum_2018_Social_Network_Analysis.pdf
 ├── README.md
 ├── runall.sh
 ├── src
@@ -52,19 +53,32 @@
 │   │   ├── exploration_cold_war.ipynb
 │   │   ├── exploration_raw.ipynb
 │   │   └── IDEAS.md
+│   ├── centrality_and_success.ipynb
+│   ├── drafts
+│   │   ├── analysis_entire_graph.ipynb
+│   │   ├── analysis_network_growth.ipynb
+│   │   └── exploration_belgian_actor_graph.ipynb
 │   ├── exploration_actor_graph.ipynb
 │   ├── exploration_actors_features.ipynb
 │   ├── exploration_actors_time.ipynb
-│   ├── exploration_belgian_actor_graph.ipynb
+│   ├── exploration_centrality_and_success.ipynb
 │   ├── exploration_temporal_graph.ipynb
+│   ├── preprocess_graph.ipynb
 │   ├── preprocess.ipynb
 │   └── utils.py
 ├── story
 │   ├── about.qmd
+│   ├── belgian.ipynb
+│   ├── bibliography.bib
+│   ├── centrality_and_success.ipynb
 │   ├── data.qmd
+│   ├── full_network.ipynb
+│   ├── growth.ipynb
+│   ├── homophily.ipynb
 │   ├── index.qmd
+│   ├── intro.qmd
 │   ├── _quarto.yml
 │   └── styles.css
 └── tree.txt
 
-14 directories, 53 files
+13 directories, 68 files
