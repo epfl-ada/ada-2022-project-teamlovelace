@@ -8,6 +8,10 @@ format:
     code-summary: "Show the code"
 ---
 
+### Disclaimer
+This page might take some time 
+
+
 ```{ojs}
 // base https://stackoverflow.com/questions/32527026/shortest-path-in-javascript
 // wanted to do better than a simple bfs but performance seems great
@@ -123,7 +127,7 @@ actor2_node = name_to_node[actor2]
 ```{ojs}
 //| output: false
 path = {
-  if (graph.neighbors !== undefined && actor1 !== null && actor2 !== null) {
+  if (graph.neighbors !== undefined && actor1 !== null && actor2 !== null && actor1 !== actor2) {
     return shortestPath(graph, actor1_node.id, actor2_node.id);
   } else {
     return [];
@@ -140,19 +144,48 @@ pathEdges = path.reduce((xs, x) => {
   return xs
 }, [])
 useless = pathEdges.pop()
+```
+
+```{ojs}
+function get_neigh_node(pathNodes) {
+  var pathNId = pathNodes.map(x => x.id);
+  var pathNeighDict = pathNodes.flatMap(x => graph.neighbors[x.id]).filter(x => !pathNId.includes(x.id));
+  var pathNeigh = {};
+  pathNeighDict.map(x => {
+    if (pathNeigh[x.id] === undefined) {
+      var n = id_to_node[x.id];
+      n["count"] = 1;
+      pathNeigh[x.id] = n;
+    } else {
+      pathNeigh[x.id]["count"] += 1;
+    }
+  })
+  var r = [];
+  Object.entries(pathNeigh).forEach(function([key, value]) {
+    var group = ""
+    if (value.count >= 4) {
+      group = "4+-connected";
+    } else {
+      group = value.count + "-connected";
+    }
+    r.push({id: value.id, name: value.name, group: group})
+  }); 
+  return r;
+}
+pathNeighNodes = get_neigh_node(pathNodes).filter(x => x.group !== "1-connected" && x.group !== "2-connected")
+function get_neigh_edges(pathNodes, pathNeighNodes) {
+  var pathNeighNodesId = pathNeighNodes.map(x => x.id);
+  var pathNeighDict = pathNodes.flatMap(x => graph.neighbors[x.id].filter(z => pathNeighNodesId.includes(z.id)).map(y => ({source: x.id, target: y.id, value: y.value, group: "Neighbors"})));
+  return pathNeighDict;
+}
+pathNeighEdges = get_neigh_edges(pathNodes, pathNeighNodes)
 data = ({
-    nodes: pathNodes,
-    links: pathEdges,
+    nodes: pathNodes.concat(pathNeighNodes),
+    links: pathEdges.concat(pathNeighEdges),
 })
 ```
 
 ```{ojs}
-pathNeigh = d3.group(pathNodes.flatMap(x => graph.neighbors[x.id]), d => d.id)
-pathNeigh
-```
-
-```{ojs}
-// horrible code practice
 function output_path_exist() {
   if (graph.neighbors !== undefined && path !== undefined && path.length === 0) {
     return "There is no path between " + actor1 + " and " + actor2 + ".";
@@ -162,8 +195,8 @@ function output_path_exist() {
 }
 DOM.text(output_path_exist())
 colors = d3.scaleOrdinal()
-  .domain(["Shortest path"])
-  .range(['#4797C9']);
+  .domain(["Shortest path", "3-connected", "4+-connected"])
+  .range(['#4797C9','#fff686','#9e79db']);
 ```
 
 ```{ojs}
@@ -195,7 +228,13 @@ chart = {
 
   var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter())
-    .force("charge", d3.forceManyBody().strength(-3000).distanceMax(450).distanceMin(85))
+    .force("charge", d3.forceManyBody().strength(d => {
+      if (d.group === "Shortest path") {
+        return -3000;
+      } else {
+        return -100;
+      }
+    }).distanceMax(450).distanceMin(85))
     .force("link", d3.forceLink().id(d => d.id));
 
   var links = svg.selectAll("links")
@@ -203,7 +242,13 @@ chart = {
     .enter()
     .append("line")
     .attr("stroke", "#BDBDBD")
-    .attr("stroke-width", l => l.value.length * 5);
+    .attr("stroke-width", l => {
+      if (l.group === "Shortest path") {
+        return l.value.length * 5;
+      } else {
+        return 1;
+      }
+    });
 
   links.append("title").text(l => l.value);
 
@@ -212,7 +257,13 @@ chart = {
     .enter()
     .append("text")
 	  .attr("fill", "#0022B7")
-    .text(l => l.value);
+    .text(l => {
+      if (l.group === "Shortest path") {
+        return l.value;
+      } else {
+        return "";
+      }
+    });
 
   var nodes = svg.selectAll("nodes")
     .data(data.nodes)
@@ -227,7 +278,13 @@ chart = {
 
   var circles = nodes.append("circle")
     .attr("class", "circle")
-    .attr("r", 30)
+    .attr("r", d => {
+      if (d.group === "Shortest path") {
+        return 30;
+      } else {
+        return 5;
+      }
+    })
     .attr("fill", d => colors(d.group))
     .attr("stroke", "#ffffff")
     .attr("stroke-width", 2)
@@ -238,7 +295,13 @@ chart = {
     .attr("dx", 0)
     .attr("dy", 5)
     .attr("text-anchor","middle")
-    .text(d => d.name);
+    .text(d => {
+      if (d.group === "Shortest path") {
+        return d.name;
+      } else {
+        return "";
+      }
+    });
 
   simulation.nodes(data.nodes);
   simulation.force("link").links(data.links)
@@ -277,8 +340,9 @@ chart = {
     event.subject.fy = null;
   };
 
+  
+  
   return Object.assign(svg.node(), {scales: d3.schemeTableau10});
 }
 ```
-
 
