@@ -38,7 +38,6 @@ function shortestPath(graph, source, target) {
   if (source == target) {
     return source;
   }
-  console.log("Start")
   var queue = [ source ],
       visited = { [source]: true },
       predecessor = {},
@@ -73,7 +72,6 @@ function shortestPath(graph, source, target) {
       queue.push(v.id);
     }
   }
-  console.log("End")
   return [];
 }
 ```
