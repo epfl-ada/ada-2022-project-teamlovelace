@@ -1,0 +1,19 @@
+---
+title: "Conclusion"
+---
+
+In this project, we analyzed a network of actors linked by the movies they played in. We found that the network exhibits a power-law degree distribution and that it is mainly composed of a single giant cluster, which is a common characteristic of many social networks.
+
+Our analysis of a subset of Belgian actors using classical SNA metrics provided further insight into the structure and dynamics of such an actor network. We calculated metrics such as degree centrality, betweenness centrality, eigenvector centrality and clustering methods, which capture the importance and influence of individual actors within the network. 
+We also examined how the network grows and changes as new actors join and new movies are made //@TODO add a sentence. 
+
+In addition, we analyzed homophily between nodes based on attributes such as gender, country, and age. Our analysis showed that these attributes may influence the formation and maintenance of relationships within the network. For example, we found that actors are more likely to be connected to other actors from the same country but their age is not relevant.
+
+Finally, we explored the relationship between a node's centrality in the network and the popularity of the actor. Our analysis showed that there is a weak, non-significant correlation between these two variables. This finding suggests that other factors may influence an actor's popularity. More various data would be needed to better understand the complex relationship between an actor's node in the network and its popularity.
+
+To conclude, we have seen that the actor's network we generated, displayed as we suggested, some of the same properties as real-life social networks.
+
+\
+\
+\
+Also feel free to try the shortest path visualization in the next section !

@@ -6,13 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Arthur Andre">
-<meta name="author" content="Dario Goedtkindt">
-<meta name="author" content="Nicolas Wagner">
-<meta name="author" content="Nicole Vadot">
-<meta name="dcterms.date" content="2022-01-01">
 
-<title>The world of actors</title>
+<title>The world of actors - Conclusion</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
-}
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
 }
 </style>
 
@@ -93,7 +69,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The world of actors</h1>
+      <h1 class="quarto-secondary-nav-title">Conclusion</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +94,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">The world of actors</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">The world of actors</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -156,7 +132,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link active">Conclusion</a>
   </div>
 </li>
       </ul>
@@ -164,14 +140,6 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./viz.html" class="sidebar-item-text sidebar-link">Shorthest path visualization</a>
-<<<<<<< HEAD
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
-=======
->>>>>>> 33a5844 (added conclusion)
   </div>
 </li>
     </ul>
@@ -179,42 +147,21 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The world of actors</h1>
+<h1 class="title d-none d-lg-block">Conclusion</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Arthur Andre </p>
-             <p>Dario Goedtkindt </p>
-             <p>Nicolas Wagner </p>
-             <p>Nicole Vadot </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -222,19 +169,19 @@ div.csl-indent {
 
 </header>
 
-<section id="abstract" class="level1">
-<h1>Abstract</h1>
-<p>The well-known concept of <a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">six degrees of separation</a> descibes that one can link anyone to any other person by a “friend of a friend” chain of length six. Our project stems from this idea : we aim to analyze the graph of movie actors formed by linking actors having played in the same movie, or by various similarity metrics. This field is called SNA, standing for Social Network Analysis <span class="citation" data-cites="tabassum_2018">(<a href="#ref-tabassum_2018" role="doc-biblioref">Tabassum et al. 2018</a>)</span> and has been quite active in the last decade. With this in mind, we want to look at how our social graph can relate to real world’s social interactions. Our main approach consists in investigating the connectedness of actors in different subsets of our graph, according to different features such as countries and release year. We can ask ourselves how similarities between actors reflect themselves in the connectedness of actors. Can the time evolution of the social graph reflect geopolitical events, and reveal information about the influence of star actors on the future career of newcomers ?</p>
+<p>In this project, we analyzed a network of actors linked by the movies they played in. We found that the network exhibits a power-law degree distribution and that it is mainly composed of a single giant cluster, which is a common characteristic of many social networks.</p>
+<p>Our analysis of a subset of Belgian actors using classical SNA metrics provided further insight into the structure and dynamics of such an actor network. We calculated metrics such as degree centrality, betweenness centrality, eigenvector centrality and clustering methods, which capture the importance and influence of individual actors within the network. We also examined how the network grows and changes as new actors join and new movies are made //<span class="citation" data-cites="TODO">@TODO</span> add a sentence.</p>
+<p>In addition, we analyzed homophily between nodes based on attributes such as gender, country, and age. Our analysis showed that these attributes may influence the formation and maintenance of relationships within the network. For example, we found that actors are more likely to be connected to other actors from the same country but their age is not relevant.</p>
+<p>Finally, we explored the relationship between a node’s centrality in the network and the popularity of the actor. Our analysis showed that there is a weak, non-significant correlation between these two variables. This finding suggests that other factors may influence an actor’s popularity. More various data would be needed to better understand the complex relationship between an actor’s node in the network and its popularity.</p>
+<p>To conclude, we have seen that the actor’s network we generated, displayed as we suggested, some of the same properties as real-life social networks.</p>
+<p><br>
+<br>
+<br>
+Also feel free to try the shortest path visualization in the next section !</p>
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-tabassum_2018" class="csl-entry" role="doc-biblioentry">
-Tabassum, Shazia, Fabiola Pereira, Sofia Fernandes, and João Gama. 2018. <span>“Social Network Analysis: An Overview.”</span> <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em> 8 (April): e1256. <a href="https://doi.org/10.1002/widm.1256">https://doi.org/10.1002/widm.1256</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

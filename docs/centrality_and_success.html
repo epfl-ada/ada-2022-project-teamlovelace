@@ -133,16 +133,24 @@ ul.task-list li input[type="checkbox"] {
   <a href="./centrality_and_success.html" class="sidebar-item-text sidebar-link active">Centrality in actor graph and popularity. Are they linked?</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./viz.html" class="sidebar-item-text sidebar-link">Shorthest path visualization</a>
+<<<<<<< HEAD
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
+=======
+>>>>>>> 33a5844 (added conclusion)
   </div>
 </li>
     </ul>
@@ -177,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="centrality-in-actor-graph-and-popularity.-are-they-linked" class="level1">
 <h1>Centrality in actor graph and popularity. Are they linked?</h1>
-<p>We want to use wikipedia pageviews as a proxy for popularity, and try to find a correlation the centrality of actors in the actor graph. For this we used the <a href="https://github.com/epfl-ada/2022/blob/main/Homework/02%20-%20Regression%20Observational%20Studies%20Stats%20and%20Supervised%20Learning/data/all_entities.csv.gz">dataset of pageviews</a> from Homework 2. Since Wikipedia was founded at the start of the century, pageviews might not be relevant for older actors. To eliminate this possible bias we only considered only actors having played in recent movies and formed the actor-graph only based on the recent movies.</p>
+<p>We want to use wikipedia pageviews as a proxy for popularity, and try to find a correlation the centrality of actors in the actor graph. For this we used the <a href="https://github.com/epfl-ada/2022/blob/main/Homework/02%20-%20Regression%20Observational%20Studies%20Stats%20and%20Supervised%20Learning/data/all_entities.csv.gz">dataset of pageviews</a> from Homework 2. Since Wikipedia was founded at the start of the century, pageviews might not be relevant for older actors. To eliminate this possible bias we considered only actors having played in recent movies and formed the actor-graph only based on the recent movies.</p>
 <p>We therefore consider 49481 actors accross 41039 movies, 4631 of which (the actors) we have the pageview count.</p>
 <div class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
