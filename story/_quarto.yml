@@ -17,7 +17,6 @@ website:
           - homophily.ipynb
           - centrality_and_success.ipynb
       - about.qmd
-      - viz.qmd
 
 format:
   html:
