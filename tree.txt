@@ -53,16 +53,17 @@
 │   │   ├── exploration_cold_war.ipynb
 │   │   ├── exploration_raw.ipynb
 │   │   └── IDEAS.md
-│   ├── centrality_and_success.ipynb
 │   ├── drafts
 │   │   ├── analysis_entire_graph.ipynb
 │   │   ├── analysis_network_growth.ipynb
+│   │   ├── centrality_and_success.ipynb
 │   │   └── exploration_belgian_actor_graph.ipynb
-│   ├── exploration_actor_graph.ipynb
-│   ├── exploration_actors_features.ipynb
-│   ├── exploration_actors_time.ipynb
-│   ├── exploration_centrality_and_success.ipynb
-│   ├── exploration_temporal_graph.ipynb
+│   ├── exploration
+│   │   ├── exploration_actor_graph.ipynb
+│   │   ├── exploration_actors_features.ipynb
+│   │   ├── exploration_actors_time.ipynb
+│   │   ├── exploration_centrality_and_success.ipynb
+│   │   └── exploration_temporal_graph.ipynb
 │   ├── preprocess_graph.ipynb
 │   ├── preprocess.ipynb
 │   └── utils.py
@@ -81,4 +82,4 @@
 │   └── styles.css
 └── tree.txt
 
-13 directories, 68 files
+14 directories, 68 files
