@@ -70,7 +70,6 @@ function shortestPath(graph, source, target) {
 
 
 ```{ojs}
-//| output: false
 d3 = require("d3")
 underscore = require("underscore")
 nodes = FileAttachment("/data/js_graph/nodes.json").json()
@@ -78,8 +77,30 @@ names = nodes.map(x => x.name)
 edges1 = FileAttachment("/data/js_graph/edges1.json").json()
 edges2 = FileAttachment("/data/js_graph/edges2.json").json()
 edges = edges1.concat(edges2)
-graph = new Graph()
-edges.forEach(x => graph.addEdge(x.source, x.target, x.value))
+```
+
+```{ojs}
+function get_graph(edges) {
+  var g = new Graph();
+  edges.forEach(x => g.addEdge(x.source, x.target, x.value));
+  return g;
+}
+graph = get_graph(edges)
+```
+
+```{ojs}
+function transform_dict_id(nodes) {
+  var dict = {};
+  nodes.forEach(x => dict[x.id] = x);
+  return dict;
+}
+id_to_node = transform_dict_id(nodes)
+function transform_dict_name(nodes) {
+  var dict = {};
+  nodes.forEach(x => dict[x.name] = x);
+  return dict;
+}
+name_to_node = transform_dict_name(nodes)
 ```
 
 ### Choose the first Actor
@@ -95,8 +116,8 @@ viewof actor2 = Inputs.select(underscore.sample(search2, 100))
 ```
 
 ```{ojs}
-actor1_node = nodes.filter(x => x.name == actor1)[0]
-actor2_node = nodes.filter(x => x.name == actor2)[0]
+actor1_node = name_to_node[actor1]
+actor2_node = name_to_node[actor2]
 ```
 
 ```{ojs}
@@ -108,8 +129,7 @@ path = {
     return [];
   }
 }
-// optimizable
-pathNodes = path.map(x => nodes.filter(y => y.id == x.id)[0])
+pathNodes = path.map(x => id_to_node[x.id])
 pathNodes.forEach(x => x["group"] = "Shortest path")
 pathEdges = path.reduce((xs, x) => {
   var last = xs.pop()
@@ -124,6 +144,11 @@ data = ({
     nodes: pathNodes,
     links: pathEdges,
 })
+```
+
+```{ojs}
+pathNeigh = d3.group(pathNodes.flatMap(x => graph.neighbors[x.id]), d => d.id)
+pathNeigh
 ```
 
 ```{ojs}
@@ -203,7 +228,7 @@ chart = {
   var circles = nodes.append("circle")
     .attr("class", "circle")
     .attr("r", 30)
-    .attr("fill", "#4797C9")
+    .attr("fill", d => colors(d.group))
     .attr("stroke", "#ffffff")
     .attr("stroke-width", 2)
 
