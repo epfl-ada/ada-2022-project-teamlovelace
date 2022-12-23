@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.16.1.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -174,26 +190,76 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>For the actor nationality, we have the following interactive plot. We observe a majority (around 45%) of american actors, followed by some country like Canada, India, Great britain, … We need to keep this distribution in mind for the rest of our study, especially for the comparison part.</li>
 </ul>
-<div class="cell" data-execution_count="60">
+<div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
-<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+
+<div>                            <div id="d32e6aa5-6702-4a23-bfd3-2bb463c00150" class="plotly-graph-div" style="height:600px; width:900px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d32e6aa5-6702-4a23-bfd3-2bb463c00150")) {                    Plotly.newPlot(                        "d32e6aa5-6702-4a23-bfd3-2bb463c00150",                        [{"colorbar":{"title":{"text":"World Population in 2020"}},"colorscale":[[0.0,"rgb(12,51,131)"],[0.25,"rgb(10,136,186)"],[0.5,"rgb(242,211,56)"],[0.75,"rgb(242,143,56)"],[1.0,"rgb(217,30,30)"]],"locationmode":"country names","locations":["Albania","Algeria","Argentina","Armenia","Australia","Austria","Austria-Hungary","Azerbaijan","Bangladesh","Belgium","Belize","Bolivia","Bosnia and Herzegovina","Brazil","British Hong Kong","British Raj","Brunete","Bulgaria","Burkina Faso","Cambodia","Cameroon","Canada","Captaincy General of Catalonia","Chad","Chile","China","Colombia","Croatia","Cuba","Cyprus","Czech Republic","Czechoslovakia","Denmark","Dominica","Dominican Republic","Ecuador","Egypt","England","Estonia","Ethiopia","Federal Republic of Yugoslavia","Fiji","Finland","France","Georgia","German Democratic Republic","German Empire","German Reich","Germany","Ghana","Greece","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Israel","Italy","Ivory Coast","Jacob","Jamaica","Japan","Kenya","Kingdom of Bavaria","Kingdom of Denmark","Kingdom of Hungary","Kingdom of Italy","Kingdom of the Netherlands","Laos","Lebanon","Lithuania","Luxembourg","Malaysia","Mali","Malta","Mexicana","Mexico","Montreal","Morocco","Namibia","Nazi Germany","Nepal","New Zealand","Nicaragua","Nigeria","North Macedonia","Norway","Pakistan","Panama","People's Republic of Bulgaria","People's Republic of China","Peru","Philippines","Poland","Portugal","Puerto Rico","Q41700","Republic of China","Republic of Ireland","Romania","Russia","Russian Empire","Scotland","Senegal","Serbia","Serbia and Montenegro","Sierra Leone","Singapore","Slovakia","Slovenia","Socialist Federal Republic of Yugoslavia","South Africa","South Korea","Soviet Union","Spain","Sri Lanka","State of Mexico","State of Palestine","Suriname","Sweden","Switzerland","Syria","Taiwan","Thailand","The Bahamas","The Gambia","Trinidad and Tobago","Tunisia","Turkey","Turkish Republic of Northern Cyprus","Ukraine","United Kingdom","United Kingdom of Great Britain and Ireland","United States of America","Uruguay","Venezuela","Vietnam","Wales","Weimar Republic","West Bengal","West Germany","Yugoslavia","Zimbabwe"],"marker":{"line":{"color":"rgb(255,255,255)","width":2}},"z":[3,5,227,1,707,190,13,1,4,115,1,1,13,161,49,13,1,30,1,1,2,1622,1,1,40,1,14,73,17,2,140,38,201,1,8,5,30,35,5,1,1,1,111,1647,2,2,2,18,860,2,117,1,3,1,61,137,21,1987,25,40,92,575,2,1,10,1285,5,1,6,1,499,206,1,4,3,7,25,4,2,1,298,1,5,1,4,2,131,1,8,8,139,28,1,1,303,9,273,211,52,21,1,3,210,56,34,2,9,2,101,2,1,18,24,1,15,81,372,499,428,9,1,3,1,385,59,2,71,40,1,1,5,6,120,1,3,4305,14,15534,9,12,2,4,5,1,2,3,3],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"geo":{"projection":{"type":"natural earth2"},"showcoastlines":true,"showcountries":true,"showframe":true},"hovermode":"closest","width":900,"height":600,"title":{"text":"World Map with number of Actors per Country"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('d32e6aa5-6702-4a23-bfd3-2bb463c00150');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
 </div>
 </div>
 <ul>
 <li>Furthermore, we have the four other parameters with their associated distribution according to the dataset :</li>
 </ul>
-<div class="cell" data-execution_count="61">
+<div class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
-<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+
+<div>                            <div id="bd7ee35e-75cb-4628-9caa-b25d1a8bc5d8" class="plotly-graph-div" style="height:400px; width:500px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("bd7ee35e-75cb-4628-9caa-b25d1a8bc5d8")) {                    Plotly.newPlot(                        "bd7ee35e-75cb-4628-9caa-b25d1a8bc5d8",                        [{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"hovertemplate":"gender=%{label}<br>count=%{value}<extra></extra>","labels":["F","M"],"legendgroup":"","name":"","showlegend":true,"values":[18415,32376],"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"tracegroupgap":0},"title":{"text":"Gender Distribution in the Dataset"},"height":400,"width":500},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('bd7ee35e-75cb-4628-9caa-b25d1a8bc5d8');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
 </div>
 </div>
-<div class="cell" data-execution_count="64">
+<div class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="117">
-<div class="cell-output cell-output-display" data-execution_count="117">
+<div class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>[(1, 100)]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -205,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>For scalar attribute, we can create a linear equation, meaning that the further the values are apart, the lower the value will be. We illustrated this defintion through the following plot :</li>
 </ul>
-<div class="cell" data-execution_count="120">
+<div class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
@@ -217,9 +283,9 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>check value for male actor and female actress indenpendantly</p>
 </blockquote>
-<div class="cell" data-execution_count="121">
-<div class="cell-output cell-output-display" data-execution_count="121">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1611dba30&gt;</code></pre>
+<div class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7f21971f4250&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
@@ -227,17 +293,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="comparison-with-mean-actor-of-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="comparison-with-mean-actor-of-the-dataset">Comparison with “mean actor” of the dataset</h2>
-<div class="cell" data-execution_count="83">
-<div class="cell-output cell-output-display" data-execution_count="83">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x14751e070&gt;</code></pre>
+<div class="cell" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7f216a969ed0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="123">
-<div class="cell-output cell-output-display" data-execution_count="123">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x145391550&gt;</code></pre>
+<div class="cell" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7f219dafea40&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-39-output-2.png" class="img-fluid"></p>
@@ -246,46 +312,46 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="randomization-for-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="randomization-for-comparison">Randomization for comparison</h2>
-<div class="cell">
-<div class="cell-output cell-output-display" data-execution_count="502">
-<pre><code>(1423779401.5, 0.0)</code></pre>
+<div class="cell" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>(1347103748.0, 3.877687697155545e-34)</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-display" data-execution_count="422">
-<pre><code>array([6.65421448e-24])</code></pre>
+<div class="cell" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>array([6.38037866e-28])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="142">
-<div class="cell-output cell-output-display" data-execution_count="142">
-<pre><code>(1352644302.0, 0.0)</code></pre>
+<div class="cell" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>(1352574341.5, 0.0)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="145">
-<div class="cell-output cell-output-display" data-execution_count="145">
-<pre><code>(770519804.0, 0.0)</code></pre>
+<div class="cell" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>(766980273.0, 0.0)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="147">
-<div class="cell-output cell-output-display" data-execution_count="147">
-<pre><code>(55381190.5, 4.099476988829858e-07)</code></pre>
+<div class="cell" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>(55515587.0, 9.239917151733665e-08)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="149">
-<div class="cell-output cell-output-display" data-execution_count="149">
-<pre><code>(2283005803.0, 0.0)</code></pre>
+<div class="cell" data-execution_count="53">
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>(2283960824.5, 0.0)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="163">
-<div class="cell-output cell-output-display" data-execution_count="163">
+<div class="cell" data-execution_count="54">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>Text(0.5, 0.98, 'Kernel Density Function')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="homophily_files/figure-html/cell-55-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="168">
-<div class="cell-output cell-output-display" data-execution_count="168">
+<div class="cell" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>Text(0.5, 0.98, 'Kernel Density Function')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
