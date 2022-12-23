@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The world of actors – full_network</title>
+<title>The world of actors – homophily</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,25 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
-}
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
 }
 </style>
 
@@ -130,7 +111,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./full_network.html" class="sidebar-item-text sidebar-link active">Full actor network characteristics</a>
+  <a href="./full_network.html" class="sidebar-item-text sidebar-link">Full actor network characteristics</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -145,7 +126,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./homophily.html" class="sidebar-item-text sidebar-link">Homophily and attributes analysis</a>
+  <a href="./homophily.html" class="sidebar-item-text sidebar-link active">Homophily and attributes analysis</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -169,11 +150,13 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#full-actor-network-characteristics" id="toc-full-actor-network-characteristics" class="nav-link active" data-scroll-target="#full-actor-network-characteristics">Full actor network characteristics</a>
+  <li><a href="#homophily-and-attributes-analysis" id="toc-homophily-and-attributes-analysis" class="nav-link active" data-scroll-target="#homophily-and-attributes-analysis">Homophily and attributes analysis</a>
   <ul class="collapse">
-  <li><a href="#graph-generation" id="toc-graph-generation" class="nav-link" data-scroll-target="#graph-generation">Graph generation</a></li>
-  <li><a href="#degree-distribution" id="toc-degree-distribution" class="nav-link" data-scroll-target="#degree-distribution">Degree distribution</a></li>
-  <li><a href="#clusters-and-diameter" id="toc-clusters-and-diameter" class="nav-link" data-scroll-target="#clusters-and-diameter">Clusters and diameter</a></li>
+  <li><a href="#comparison-with-mean-actor-of-the-dataset" id="toc-comparison-with-mean-actor-of-the-dataset" class="nav-link" data-scroll-target="#comparison-with-mean-actor-of-the-dataset">Comparison with “mean actor” of the dataset</a></li>
+  <li><a href="#randomization-for-comparison" id="toc-randomization-for-comparison" class="nav-link" data-scroll-target="#randomization-for-comparison">Randomization for comparison</a>
+  <ul class="collapse">
+  <li><a href="#networx-and-igraph" id="toc-networx-and-igraph" class="nav-link" data-scroll-target="#networx-and-igraph">NETWORX AND IGRAPH</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -183,173 +166,144 @@ div.csl-indent {
 
 
 
-<section id="full-actor-network-characteristics" class="level1">
-<h1>Full actor network characteristics</h1>
-<section id="graph-generation" class="level2">
-<h2 class="anchored" data-anchor-id="graph-generation">Graph generation</h2>
-<p>The actor network is modeled by a graph, where each actor represents as node <span class="math inline">\(i \in \{1 \cdots N\}\)</span>. Edges <span class="math inline">\((i,j) \in E\)</span> are placed between two actors if they have appeared in the same movie. We additionally weigh each edge by the number of movies the two actors have in common.</p>
-<p>Before we dive head first into computing the graph edges, we need to estimate how much space it will take. An upper bound for the number of edges is <span class="math inline">\(\mathcal{O}(\text{number of movies} \times \text{number of actors per movie}^2)\)</span>, since each movie links two actors together.</p>
-<p>We therefore compute the number of actors per movie, and report the histogram in <a href="#fig-numactorspermovie">Figure&nbsp;1</a>.</p>
-<div class="cell" data-execution_count="56">
-<div class="cell-output cell-output-display" data-execution_count="56">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>numactors_per_movie</th>
-      <th>movie_name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>115</td>
-      <td>Hemingway &amp; Gellhorn</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>87</td>
-      <td>Taking Woodstock</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>81</td>
-      <td>Captain Corelli's Mandolin</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>81</td>
-      <td>Terror in the Aisles</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>72</td>
-      <td>Walk Hard: The Dewey Cox Story</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>64324</th>
-      <td>1</td>
-      <td>Primo</td>
-    </tr>
-    <tr>
-      <th>64325</th>
-      <td>1</td>
-      <td>The Stranger Who Looks Like Me</td>
-    </tr>
-    <tr>
-      <th>64326</th>
-      <td>1</td>
-      <td>On the Wing</td>
-    </tr>
-    <tr>
-      <th>64327</th>
-      <td>1</td>
-      <td>Robot Bastard!</td>
-    </tr>
-    <tr>
-      <th>64328</th>
-      <td>1</td>
-      <td>Incident</td>
-    </tr>
-  </tbody>
-</table>
-<p>64329 rows × 2 columns</p>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="57">
-<div class="cell-output cell-output-display">
-<div id="fig-numactorspermovie" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="full_network_files/figure-html/fig-numactorspermovie-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Distribution of actors per movie</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>With a total of 64329 movies, the distribution seems to follow an exponential law (with a somewhat long tail due to outliers). We pick the median at 6.0 to represent the distribution. We can now compute the upper bound :</p>
-<div class="cell" data-execution_count="58">
-<div class="cell-output cell-output-stdout">
-<pre><code>num_edges ~ 2.3e+06</code></pre>
-</div>
-</div>
-<p>With order <span class="math inline">\(10^6\)</span> edges we will not be doing any full graph visualization, however we can do some analysis on the large graph.</p>
-<p>After explicit computation, we get the following graph :</p>
-<div class="cell" data-execution_count="59">
-<div class="cell-output cell-output-stdout">
-<pre><code>Graph with 135061 nodes and 2080273 edges</code></pre>
-</div>
-</div>
-<p>Thus we end up with around 200k edges. (and around 224k edges if we keep edges between the two same actors distinct).</p>
-<p>The graph contains around 135k actors, spanning movies released between 1888 and 2016, as shown in <a href="#fig-mpy">Figure&nbsp;2</a>. We note that after approximatively 2010, the number of movies in the dataset drops fast, even though the original paper with the data was published in August 2013.</p>
+<section id="homophily-and-attributes-analysis" class="level1">
+<h1>Homophily and attributes analysis</h1>
+<p>As we introduced in the overview, one purpose of this project was to focus on the analysis of how connected actors could be influenced to play in the same movie based on their distinguished attributes. In other words, does “similar” actors are more likely connected into the same movie. We need therefore a definition of the similarity. According to several papers, one main tool to assess the similarity is called the homophily. It is the tendency for people to be attracted to those who seems similar to themselves.</p>
+<p>Knowing that we are working on a dataset of actor who are linked between each other through movies, we decided to consider only actors with a minimum degree of fifteen (which is quiet representative to movies in general as the movie story is based on interaction between a quiet large number of characters). Moreover, we also took our decision because low degree vertices shall add some unmeaningful values, particularly for categorical attribute (which can even become binary for very low link degree).</p>
+<p>First of all, as we will based our study on the attributes, we need to begin our analysis by quantify each attributes among the different actors of the dataset.</p>
+<ul>
+<li>For the actor nationality, we have the following interactive plot. We observe a majority (around 45%) of american actors, followed by some country like Canada, India, Great britain, … We need to keep this distribution in mind for the rest of our study, especially for the comparison part.</li>
+</ul>
 <div class="cell" data-execution_count="60">
 <div class="cell-output cell-output-display">
-<div id="fig-mpy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="full_network_files/figure-html/fig-mpy-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Number of movies released each year</figcaption><p></p>
-</figure>
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section id="degree-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="degree-distribution">Degree distribution</h2>
-<p>Among other real-life networks, social networks typically exhibit power law distribution of degrees. These types of networks are said to be “scale-free”, due to the scale-invariance of the power law. We compute the distribution for the network at hand.</p>
-<div class="cell" data-execution_count="62">
+<ul>
+<li>Furthermore, we have the four other parameters with their associated distribution according to the dataset :</li>
+</ul>
+<div class="cell" data-execution_count="61">
 <div class="cell-output cell-output-display">
-<div id="fig-degdist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="full_network_files/figure-html/fig-degdist-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Degree distribution of the whole network</figcaption><p></p>
-</figure>
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
 </div>
-</div>
-<p>The degree distribution shown in <a href="#fig-degdist">Figure&nbsp;3</a> clearly follows a power law <span class="math inline">\(p(k) \sim k^{-\gamma}\)</span>, and we recover the exponent <span class="math inline">\(\gamma = 1+\mu \approx 2.15 \pm 0.07\)</span>.</p>
-<p>According to the Molly-Reed condition <span class="citation" data-cites="molloy_1995">(<a href="#ref-molloy_1995" role="doc-biblioref">Molloy and Reed 1995</a>)</span>, the entire network is fully connected to a giant component if <span class="math inline">\(\langle k^2 \rangle &lt; 2 \langle k \rangle\)</span>. In our case with a power law of <span class="math inline">\(\mu \approx 1.15\)</span>, the left hand side integral diverges, and so we expect to find a giant cluster. Although since <span class="math inline">\(\langle k \rangle &lt; \infty\)</span>, we expect the giant component has not yet absorbed all clusters (“percolation”), and some smaller localized clusters remain <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>.</p>
-<p>To put this result into perspective, the Internet has in-degree distribution with <span class="math inline">\(\mu \approx 1\)</span>, scientific papers have <span class="math inline">\(\mu \approx 2\)</span>, human sexual contacts have <span class="math inline">\(\mu \approx 2.4\)</span> <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>. We are therefore in the presence of a network in which large clusters play an important role.</p>
-</section>
-<section id="clusters-and-diameter" class="level2">
-<h2 class="anchored" data-anchor-id="clusters-and-diameter">Clusters and diameter</h2>
-<p>We compute the connected components of the graph (clusters), as well as their diameter. As the true diameter computation scales as <span class="math inline">\(\mathcal O(\text{number of nodes})^3\)</span>, we resort to using an approximative algorithm. Data about the 1272 clusters is plotted on <a href="#fig-clusters">Figure&nbsp;4</a>.</p>
-<div class="cell" data-execution_count="72">
+<div class="cell" data-execution_count="64">
 <div class="cell-output cell-output-display">
-<div id="fig-clusters" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="full_network_files/figure-html/fig-clusters-output-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Distribution of cluster sizes and diameter</figcaption><p></p>
-</figure>
+<p><img src="homophily_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<div class="cell" data-execution_count="117">
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>[(1, 100)]</code></pre>
 </div>
-<p>As expected, we indeed have a giant cluster containing <span class="math inline">\(\sim 10^5\)</span> actors, accounting for about 94% of the total number of actors in the graph.</p>
-<p>We also remark that even though the cluster size spans orders of magnitude, the cluster diameter spans between 1 and 14. The smaller clusters contain up to <span class="math inline">\(10^2\)</span> actors have diameter at most 3, and their size seem to roughly follow a power law with exponential cutoff <span class="citation" data-cites="mezard_2015">(<a href="#ref-mezard_2015" role="doc-biblioref">Bouchaud J. P. 2015</a>)</span>. Albeit its exponentially large size, the giant component has a diameter of 14, which is in-line with the small-world characteristic of scale-free networks : the diameter of the network scales only logarithmically with its size, i.e.&nbsp;<span class="math inline">\(d \sim \log N\)</span> <span class="citation" data-cites="barabasi_2000">(<a href="#ref-barabasi_2000" role="doc-biblioref">Barabasi, Albert, and Jeong 2000</a>)</span>.</p>
-
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Some of these distributions are likely to be gaussian (height) or even a power low distribution for the number of movies played. We can mention that the gender attribute is unbalanced in our dataset and need to be also taken with caution for further interpretations.</p>
+<p>We will now pay attention to quantify the homophily score of each actor : - For categorical attribute, it can be describe as follow : <span class="math display">\[Homophily_{i} = \frac{\sum \limits _j \delta_{ij}}{k_i} \]</span> with $ _{ij} $ = 1 if same attribute, else -1 and $ k_i $ the degree of the node i</p>
+<ul>
+<li>For scalar attribute, we can create a linear equation, meaning that the further the values are apart, the lower the value will be. We illustrated this defintion through the following plot :</li>
+</ul>
+<div class="cell" data-execution_count="120">
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The value for which we consider the homophily score to -1 depends on the standard deviation of the distribution (we target to aim the 95% threshold). <span class="math display">\[ \Delta_{max} = 2 \times \sigma \]</span></p>
+<ul>
+<li>We then compute these homophily scores for each actors in order to vizualise the distribution. We end up with the following distributions according to the different attributes. The four first distributions are the categorical attributes especially with the distribution if the take only the homophily score of men actors (gender men) compared to the case where we take only the homophily score of women actress (gender women). The three next distributions are dedicated to the scalar attributes :</li>
+</ul>
+<blockquote class="blockquote">
+<p>check value for male actor and female actress indenpendantly</p>
+</blockquote>
+<div class="cell" data-execution_count="121">
+<div class="cell-output cell-output-display" data-execution_count="121">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1611dba30&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="comparison-with-mean-actor-of-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-with-mean-actor-of-the-dataset">Comparison with “mean actor” of the dataset</h2>
+<div class="cell" data-execution_count="83">
+<div class="cell-output cell-output-display" data-execution_count="83">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x14751e070&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="123">
+<div class="cell-output cell-output-display" data-execution_count="123">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x145391550&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-39-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="randomization-for-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-for-comparison">Randomization for comparison</h2>
+<div class="cell">
+<div class="cell-output cell-output-display" data-execution_count="502">
+<pre><code>(1423779401.5, 0.0)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-display" data-execution_count="422">
+<pre><code>array([6.65421448e-24])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="142">
+<div class="cell-output cell-output-display" data-execution_count="142">
+<pre><code>(1352644302.0, 0.0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="145">
+<div class="cell-output cell-output-display" data-execution_count="145">
+<pre><code>(770519804.0, 0.0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="147">
+<div class="cell-output cell-output-display" data-execution_count="147">
+<pre><code>(55381190.5, 4.099476988829858e-07)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="149">
+<div class="cell-output cell-output-display" data-execution_count="149">
+<pre><code>(2283005803.0, 0.0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="163">
+<div class="cell-output cell-output-display" data-execution_count="163">
+<pre><code>Text(0.5, 0.98, 'Kernel Density Function')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-55-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="168">
+<div class="cell-output cell-output-display" data-execution_count="168">
+<pre><code>Text(0.5, 0.98, 'Kernel Density Function')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-56-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="homophily_files/figure-html/cell-56-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="networx-and-igraph" class="level3">
+<h3 class="anchored" data-anchor-id="networx-and-igraph">NETWORX AND IGRAPH</h3>
 
 
 </section>
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-barabasi_2000" class="csl-entry" role="doc-biblioentry">
-Barabasi, Albert-Laszlo, Rita Albert, and Hawoong Jeong. 2000. <span>“Scale-Free Characteristics of Random Networks: The Topology of the World-Wide Web.”</span> <em>Physica A: Statistical Mechanics and Its Applications</em> 281 (June): 69–77. <a href="https://doi.org/10.1016/S0378-4371(00)00018-2">https://doi.org/10.1016/S0378-4371(00)00018-2</a>.
-</div>
-<div id="ref-mezard_2015" class="csl-entry" role="doc-biblioentry">
-Bouchaud J. P., Mézard M. 2015. <em>Complex Systems</em>.
-</div>
-<div id="ref-molloy_1995" class="csl-entry" role="doc-biblioentry">
-Molloy, Michael, and Bruce Reed. 1995. <span>“A Critical Point for Random Graphs with a Given Degree Sequence.”</span> <em>Random Structures &amp; Algorithms</em> 6 (2-3): 161–80. https://doi.org/<a href="https://doi.org/10.1002/rsa.3240060204">https://doi.org/10.1002/rsa.3240060204</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
